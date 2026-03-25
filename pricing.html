@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing & Plans | LitLoom</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-xl">
+            <div class="container">
+                <a class="navbar-brand brand-identity" href="index.html">
+                    <i class="bi bi-book-half"></i>LitLoom
+                </a>
+                
+                <div class="d-flex align-items-center gap-2 ms-auto me-3 order-lg-last">
+                    <button id="theme-toggle" class="btn btn-sm btn-outline-secondary rounded-circle"><i class="bi bi-moon"></i></button>
+                    <button id="rtl-toggle" class="btn btn-sm btn-outline-secondary">RTL</button>
+                    <div class="d-none d-xl-flex gap-2 ms-2">
+                        <a href="login.html" class="btn btn-login btn-sm">Login</a>
+                        <a href="signup.html" class="btn btn-signup btn-sm">Signup</a>
+                    </div>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
+                        <li class="nav-item"><a class="nav-link" href="home2.html">Home 2</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="pricing.html">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dashboard <i class="bi bi-chevron-down ms-1 small"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="user-dashboard.html">User Dashboard</a></li>
+                                <li><a class="dropdown-item" href="admin-dashboard.html">Admin Dashboard</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="wishlist.html">My Wishlist</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="d-xl-none mt-4 border-top pt-4">
+                        <div class="d-grid gap-2">
+                            <a href="login.html" class="btn btn-login btn-lg">Login</a>
+                            <a href="signup.html" class="btn btn-signup btn-lg">Signup</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="hero-section" style="background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2000'); height: 60vh;">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content text-center animate__animated animate__fadeIn">
+            <h1 class="hero-title">Fuel Your Literary Passion</h1>
+            <p class="hero-subtitle">Exclusive benefits, early access, and a community for every book lover. Choose a membership plan that fits your reading habits and unlock premium features designed for true bibliophiles.</p>
+        </div>
+    </section>
+
+    <!-- 2. Benefits Grid -->
+    <section class="reveal reveal-up">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-md-3">
+                    <div class="p-4">
+                        <i class="bi bi-truck text-primary fs-1 mb-3"></i>
+                        <h5>Free Shipping</h5>
+                        <p class="text-muted small">Standard free shipping on all orders over $30 for members.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-4">
+                        <i class="bi bi-calendar-event text-primary fs-1 mb-3"></i>
+                        <h5>Early Access</h5>
+                        <p class="text-muted small">Shop new arrivals and rare finds 24 hours before everyone else.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-4">
+                        <i class="bi bi-award text-primary fs-1 mb-3"></i>
+                        <h5>Limited Editions</h5>
+                        <p class="text-muted small">Exclusive access to signed copies and first-edition curators.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-4">
+                        <i class="bi bi-cup-hot text-primary fs-1 mb-3"></i>
+                        <h5>Member Events</h5>
+                        <p class="text-muted small">Invitation only virtual book clubs and author sessions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Pricing Tiers -->
+    <section class="bg-light reveal reveal-up">
+        <div class="container">
+            <h2 class="section-title text-center d-block mx-auto mb-5">Choose Your Membership</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 card-hover">
+                        <div class="card-body text-center">
+                            <span class="badge bg-soft-dark text-dark mb-3">Free</span>
+                            <h3 class="mb-3">Scholar</h3>
+                            <h1 class="display-4 fw-bold mb-4">$0</h1>
+                            <ul class="list-unstyled text-start mb-5 opacity-75">
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i> Browse & Buy Books</li>
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i> Join Public Clubs</li>
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i> Personalized Feed</li>
+                                <li class="mb-2 text-muted text-decoration-line-through"><i class="bi bi-x text-danger me-2"></i> Free Shipping</li>
+                            </ul>
+                            <a href="signup.html" class="btn btn-outline-primary w-100 py-3 rounded-pill fw-bold">Sign Up Free</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-lg rounded-4 p-4 card-hover bg-primary text-white">
+                        <div class="card-body text-center">
+                            <span class="badge bg-warning text-dark mb-3">Most Popular</span>
+                            <h3 class="mb-3 text-white">Collector</h3>
+                            <h1 class="display-4 fw-bold mb-4 text-white">$9.99<small class="fs-6">/mo</small></h1>
+                            <ul class="list-unstyled text-start mb-5">
+                                <li class="mb-2"><i class="bi bi-check2 me-2"></i> 10% Discount Storewide</li>
+                                <li class="mb-2"><i class="bi bi-check2 me-2"></i> Free Standard Shipping</li>
+                                <li class="mb-2"><i class="bi bi-check2 me-2"></i> Early Arrival Access</li>
+                                <li class="mb-2"><i class="bi bi-check2 me-2"></i> 1 Rare Find Reward/mo</li>
+                            </ul>
+                            <a href="signup.html" class="btn btn-warning w-100 py-3 rounded-pill fw-bold">Become a Collector</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 card-hover">
+                        <div class="card-body text-center">
+                            <span class="badge bg-soft-gold text-warning mb-3">The Elite</span>
+                            <h3 class="mb-3">Bibliophile</h3>
+                            <h1 class="display-4 fw-bold mb-4">$24.99<small class="fs-6">/mo</small></h1>
+                            <ul class="list-unstyled text-start mb-5 opacity-75">
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i> 20% Discount Storewide</li>
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i> Free Express Shipping</li>
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i> Personal Curator Support</li>
+                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i> Signed First-Editions</li>
+                            </ul>
+                            <a href="signup.html" class="btn btn-outline-primary w-100 py-3 rounded-pill fw-bold">Join the Elite</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FAQ / Comparison -->
+    <section class="reveal reveal-up">
+        <div class="container">
+            <h2 class="section-title text-center d-block mx-auto mb-5">Frequently Asked Questions</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion accordion-flush" id="pricingFAQ">
+                        <div class="accordion-item bg-transparent mb-3 border border-light-subtle rounded-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded-3 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+                                    Can I cancel my membership anytime?
+                                </button>
+                            </h2>
+                            <div id="q1" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ">
+                                <div class="accordion-body text-muted">
+                                    Yes, you can cancel your subscription at any time from your user dashboard. No hidden fees or long-term commitments.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent mb-3 border border-light-subtle rounded-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded-3 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+                                    How does the Rare Find Reward work?
+                                </button>
+                            </h2>
+                            <div id="q2" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ">
+                                <div class="accordion-body text-muted">
+                                    Each month, Collector members get a token that can be redeemed for a 30% discount on any book in the "Rare Finds" collection.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CTA Section -->
+    <section class="bg-primary text-white py-5 text-center reveal reveal-up">
+        <div class="container py-4">
+            <h2 class="mb-4 text-white">Ready to join the LitLoom community?</h2>
+            <p class="lead mb-4 opacity-75">Start your 14-day free trial on any premium plan today.</p>
+            <div class="d-flex gap-3 justify-content-center">
+                <a href="signup.html" class="btn btn-warning px-5 py-3 fw-bold rounded-pill">Start Free Trial</a>
+                <a href="contact.html" class="btn btn-outline-light px-5 py-3 rounded-pill">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="brand-identity mb-4">
+                        <i class="bi bi-book-half"></i>LitLoom
+                    </div>
+                    <p class="opacity-75">Your local corner of the digital world for secondhand literary treasures. Let's keep the stories alive.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4 col-6">
+                    <h5 class="mb-4 text-white">Quick Links</h5>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="shop.html" class="footer-link">Browse Books</a>
+                    <a href="about.html" class="footer-link">Our Story</a>
+                    <a href="contact.html" class="footer-link">Contact</a>
+                </div>
+                <div class="col-md-2 mb-4 col-6">
+                    <h5 class="mb-4 text-white">Account</h5>
+                    <a href="user-dashboard.html" class="footer-link">User Dashboard</a>
+                    <a href="sell.html" class="footer-link">Sell a Book</a>
+                    <a href="wishlist.html" class="footer-link">My Wishlist</a>
+                    <a href="login.html" class="footer-link">Login</a>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-4 text-white">Newsletter</h5>
+                    <p class="opacity-75">Get news about new rare arrivals and special collections.</p>
+                    <form class="mt-3 needs-validation" novalidate>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Email Address" required>
+                            <button class="btn btn-warning" type="submit">Join</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="mt-5 opacity-25">
+            <div class="row align-items-center mt-4">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 opacity-50">&copy; 2026 LitLoom Bookstore. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0 d-flex align-items-center justify-content-center justify-content-md-end gap-3">
+                    <div class="d-inline-flex gap-3 opacity-50">
+                        <a href="#" class="text-white text-decoration-none small">Privacy Policy</a>
+                        <a href="#" class="text-white text-decoration-none small">Terms of Service</a>
+                    </div>
+                    <a href="#" class="btn btn-sm btn-outline-light rounded-circle ms-2" style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; opacity: 0.6;"><i class="bi bi-arrow-up"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="btn btn-warning position-fixed bottom-0 end-0 m-4 rounded-circle shadow" id="btn-top" style="display: none; width: 50px; height: 50px; z-index: 1000;">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
