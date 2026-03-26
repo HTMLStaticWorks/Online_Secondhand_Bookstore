@@ -72,36 +72,44 @@
         </div>
     </section>
 
-    <!-- 2. Benefits Grid -->
+    <!-- 2. Benefits Grid (Redesigned as Cards) -->
     <section class="reveal reveal-up">
         <div class="container">
             <div class="row g-4 text-center">
                 <div class="col-md-3">
-                    <div class="p-4">
-                        <i class="bi bi-truck text-primary fs-1 mb-3"></i>
-                        <h5>Free Shipping</h5>
-                        <p class="text-muted small">Standard free shipping on all orders over $30 for members.</p>
+                    <div class="feature-card h-100 p-4 bg-white rounded-4 shadow-sm border-0">
+                        <div class="icon-circle bg-soft-primary text-primary mx-auto mb-3">
+                            <i class="bi bi-truck fs-3"></i>
+                        </div>
+                        <h5 class="fw-bold">Free Shipping</h5>
+                        <p class="text-muted small mb-0">Standard free shipping on all orders over $30 for members.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="p-4">
-                        <i class="bi bi-calendar-event text-primary fs-1 mb-3"></i>
-                        <h5>Early Access</h5>
-                        <p class="text-muted small">Shop new arrivals and rare finds 24 hours before everyone else.</p>
+                    <div class="feature-card h-100 p-4 bg-white rounded-4 shadow-sm border-0">
+                        <div class="icon-circle bg-soft-gold text-warning mx-auto mb-3">
+                            <i class="bi bi-calendar-event fs-3"></i>
+                        </div>
+                        <h5 class="fw-bold">Early Access</h5>
+                        <p class="text-muted small mb-0">Shop new arrivals and rare finds 24 hours before everyone else.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="p-4">
-                        <i class="bi bi-award text-primary fs-1 mb-3"></i>
-                        <h5>Limited Editions</h5>
-                        <p class="text-muted small">Exclusive access to signed copies and first-edition curators.</p>
+                    <div class="feature-card h-100 p-4 bg-white rounded-4 shadow-sm border-0">
+                        <div class="icon-circle bg-soft-primary text-primary mx-auto mb-3">
+                            <i class="bi bi-award fs-3"></i>
+                        </div>
+                        <h5 class="fw-bold">Limited Editions</h5>
+                        <p class="text-muted small mb-0">Exclusive access to signed copies and first-edition curators.</p>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="p-4">
-                        <i class="bi bi-cup-hot text-primary fs-1 mb-3"></i>
-                        <h5>Member Events</h5>
-                        <p class="text-muted small">Invitation only virtual book clubs and author sessions.</p>
+                    <div class="feature-card h-100 p-4 bg-white rounded-4 shadow-sm border-0">
+                        <div class="icon-circle bg-soft-gold text-warning mx-auto mb-3">
+                            <i class="bi bi-cup-hot fs-3"></i>
+                        </div>
+                        <h5 class="fw-bold">Member Events</h5>
+                        <p class="text-muted small mb-0">Invitation only virtual book clubs and author sessions.</p>
                     </div>
                 </div>
             </div>
@@ -112,52 +120,61 @@
     <section class="bg-light reveal reveal-up">
         <div class="container">
             <h2 class="section-title text-center d-block mx-auto mb-5">Choose Your Membership</h2>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 card-hover">
-                        <div class="card-body text-center">
-                            <span class="badge bg-soft-dark text-dark mb-3">Free</span>
-                            <h3 class="mb-3">Scholar</h3>
-                            <h1 class="display-4 fw-bold mb-4">$0</h1>
-                            <ul class="list-unstyled text-start mb-5 opacity-75">
-                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i> Browse & Buy Books</li>
-                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i> Join Public Clubs</li>
-                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i> Personalized Feed</li>
-                                <li class="mb-2 text-muted text-decoration-line-through"><i class="bi bi-x text-danger me-2"></i> Free Shipping</li>
-                            </ul>
-                            <a href="signup.html" class="btn btn-outline-primary w-100 py-3 rounded-pill fw-bold">Sign Up Free</a>
+            <div class="row g-4 justify-content-center align-items-stretch">
+                <!-- Scholar Plan -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 card-hover d-flex flex-column">
+                        <div class="card-body text-center d-flex flex-column h-100 p-0">
+                            <div class="mb-auto">
+                                <span class="badge bg-soft-dark text-dark mb-3">Free</span>
+                                <h3 class="mb-3 pricing-title">Scholar</h3>
+                                <h2 class="display-6 fw-bold mb-4">$0</h2>
+                                <ul class="list-unstyled text-start mb-5 opacity-75">
+                                    <li class="mb-3"><i class="bi bi-check2 text-primary me-2"></i> Browse & Buy Books</li>
+                                    <li class="mb-3"><i class="bi bi-check2 text-primary me-2"></i> Join Public Clubs</li>
+                                    <li class="mb-3"><i class="bi bi-check2 text-primary me-2"></i> Personalized Feed</li>
+                                    <li class="mb-3 text-muted text-decoration-line-through"><i class="bi bi-x text-danger me-2"></i> Free Shipping</li>
+                                </ul>
+                            </div>
+                            <a href="signup.html" class="btn btn-outline-primary w-100 py-3 rounded-pill fw-bold mt-4">Sign Up Free</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-lg rounded-4 p-4 card-hover bg-primary text-white">
-                        <div class="card-body text-center">
-                            <span class="badge bg-warning text-dark mb-3">Most Popular</span>
-                            <h3 class="mb-3 text-white">Collector</h3>
-                            <h1 class="display-4 fw-bold mb-4 text-white">$9.99<small class="fs-6">/mo</small></h1>
-                            <ul class="list-unstyled text-start mb-5">
-                                <li class="mb-2"><i class="bi bi-check2 me-2"></i> 10% Discount Storewide</li>
-                                <li class="mb-2"><i class="bi bi-check2 me-2"></i> Free Standard Shipping</li>
-                                <li class="mb-2"><i class="bi bi-check2 me-2"></i> Early Arrival Access</li>
-                                <li class="mb-2"><i class="bi bi-check2 me-2"></i> 1 Rare Find Reward/mo</li>
-                            </ul>
-                            <a href="signup.html" class="btn btn-warning w-100 py-3 rounded-pill fw-bold">Become a Collector</a>
+                <!-- Collector Plan -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-lg rounded-4 p-4 card-hover bg-primary text-white d-flex flex-column">
+                        <div class="card-body text-center d-flex flex-column h-100 p-0">
+                            <div class="mb-auto">
+                                <span class="badge bg-warning text-dark mb-3">Most Popular</span>
+                                <h3 class="mb-3 text-white pricing-title">Collector</h3>
+                                <h2 class="display-6 fw-bold mb-4 text-white">$9.99<small class="fs-6">/mo</small></h2>
+                                <ul class="list-unstyled text-start mb-5">
+                                    <li class="mb-3"><i class="bi bi-check2 me-2"></i> 10% Discount Storewide</li>
+                                    <li class="mb-3"><i class="bi bi-check2 me-2"></i> Free Standard Shipping</li>
+                                    <li class="mb-3"><i class="bi bi-check2 me-2"></i> Early Arrival Access</li>
+                                    <li class="mb-3"><i class="bi bi-check2 me-2"></i> 1 Rare Find Reward/mo</li>
+                                </ul>
+                            </div>
+                            <a href="signup.html" class="btn btn-warning w-100 py-3 rounded-pill fw-bold mt-4">Become a Collector</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 card-hover">
-                        <div class="card-body text-center">
-                            <span class="badge bg-soft-gold text-warning mb-3">The Elite</span>
-                            <h3 class="mb-3">Bibliophile</h3>
-                            <h1 class="display-4 fw-bold mb-4">$24.99<small class="fs-6">/mo</small></h1>
-                            <ul class="list-unstyled text-start mb-5 opacity-75">
-                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i> 20% Discount Storewide</li>
-                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i> Free Express Shipping</li>
-                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i> Personal Curator Support</li>
-                                <li class="mb-2"><i class="bi bi-check2 text-primary me-2"></i> Signed First-Editions</li>
-                            </ul>
-                            <a href="signup.html" class="btn btn-outline-primary w-100 py-3 rounded-pill fw-bold">Join the Elite</a>
+                <!-- Bibliophile Plan -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 card-hover d-flex flex-column">
+                        <div class="card-body text-center d-flex flex-column h-100 p-0">
+                            <div class="mb-auto">
+                                <span class="badge bg-soft-gold text-warning mb-3">The Elite</span>
+                                <h3 class="mb-3 pricing-title">Bibliophile</h3>
+                                <h2 class="display-6 fw-bold mb-4">$24.99<small class="fs-6">/mo</small></h2>
+                                <ul class="list-unstyled text-start mb-5 opacity-75">
+                                    <li class="mb-3"><i class="bi bi-check2 text-primary me-2"></i> 20% Discount Storewide</li>
+                                    <li class="mb-3"><i class="bi bi-check2 text-primary me-2"></i> Free Express Shipping</li>
+                                    <li class="mb-3"><i class="bi bi-check2 text-primary me-2"></i> Personal Curator Support</li>
+                                    <li class="mb-3"><i class="bi bi-check2 text-primary me-2"></i> Signed First-Editions</li>
+                                </ul>
+                            </div>
+                            <a href="signup.html" class="btn btn-outline-primary w-100 py-3 rounded-pill fw-bold mt-4">Join the Elite</a>
                         </div>
                     </div>
                 </div>
@@ -207,9 +224,9 @@
         <div class="container py-4">
             <h2 class="mb-4 text-white">Ready to join the LitLoom community?</h2>
             <p class="lead mb-4 opacity-75">Start your 14-day free trial on any premium plan today.</p>
-            <div class="d-flex gap-3 justify-content-center">
-                <a href="signup.html" class="btn btn-warning px-5 py-3 fw-bold rounded-pill">Start Free Trial</a>
-                <a href="contact.html" class="btn btn-outline-light px-5 py-3 rounded-pill">Contact Sales</a>
+            <div class="d-flex flex-column flex-md-row gap-3 justify-content-center align-items-center px-4">
+                <a href="signup.html" class="btn btn-warning px-5 py-3 fw-bold rounded-pill w-100-mobile" style="white-space: nowrap;">Start Free Trial</a>
+                <a href="contact.html" class="btn btn-outline-light px-5 py-3 rounded-pill w-100-mobile" style="white-space: nowrap;">Contact Sales</a>
             </div>
         </div>
     </section>
@@ -264,7 +281,6 @@
                         <a href="#" class="text-white text-decoration-none small">Privacy Policy</a>
                         <a href="#" class="text-white text-decoration-none small">Terms of Service</a>
                     </div>
-                    <a href="#" class="btn btn-sm btn-outline-light rounded-circle ms-2" style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; opacity: 0.6;"><i class="bi bi-arrow-up"></i></a>
                 </div>
             </div>
         </div>

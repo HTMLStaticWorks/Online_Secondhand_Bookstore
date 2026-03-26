@@ -117,11 +117,27 @@
 [data-theme="dark"] .form-control,
 [data-theme="dark"] .form-select {
     background-color: #3e2723 !important; /* Slightly lighter chocolate for inputs */
-    border-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
 }
 
 [data-theme="dark"] .form-control::placeholder {
     color: rgba(239, 235, 233, 0.5) !important;
+}
+
+[data-theme="dark"] .accordion-button {
+    background-color: var(--card-bg) !important;
+    color: var(--dark-text) !important;
+}
+
+[data-theme="dark"] .accordion-button:not(.collapsed) {
+    background-color: var(--soft-primary) !important;
+    color: var(--accent-color) !important;
+}
+
+[data-theme="dark"] .accordion-body {
+    background-color: var(--card-bg) !important;
+    color: var(--dark-text) !important;
+    opacity: 0.8;
 }
 
 
@@ -324,6 +340,16 @@ header.sticky {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
+[data-theme="dark"] .btn-login {
+    background-color: var(--accent-color);
+    color: var(--dark-color) !important;
+}
+
+[data-theme="dark"] .btn-login:hover {
+    background-color: #e5b32a;
+    color: var(--dark-color) !important;
+}
+
 .btn-signup {
     background-color: transparent;
     color: var(--primary-color) !important;
@@ -339,14 +365,38 @@ header.sticky {
     color: white !important;
 }
 
-#theme-toggle {
+#theme-toggle, #rtl-toggle {
     background: transparent;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid var(--primary-color);
     color: var(--primary-color);
-    padding: 5px 12px;
+    padding: 5px 15px;
     border-radius: 50px;
     cursor: pointer;
     font-weight: 600;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 45px;
+}
+
+#theme-toggle:hover, #rtl-toggle:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] #theme-toggle, 
+[data-theme="dark"] #rtl-toggle {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+[data-theme="dark"] #theme-toggle:hover, 
+[data-theme="dark"] #rtl-toggle:hover {
+    background-color: var(--accent-color);
+    color: var(--dark-color) !important;
 }
 
 .dropdown-menu {
@@ -448,19 +498,32 @@ header.sticky {
 }
 
 .btn-cta-gold {
-    background-color: var(--accent-color);
-    color: white !important;
+    background-color: var(--accent-color) !important;
+    color: var(--dark-color) !important; /* Dark text for high contrast on gold */
+    box-shadow: 0 4px 15px rgba(205, 164, 52, 0.3);
 }
 
 .btn-cta-gold:hover {
+    background-color: var(--dark-color) !important;
+    color: var(--accent-color) !important; /* Invert on hover */
     box-shadow: var(--glow-shadow);
     transform: translateY(-5px);
 }
 
+[data-theme="dark"] .btn-cta-gold {
+    background-color: var(--accent-color) !important;
+    color: var(--dark-color) !important;
+}
+
+[data-theme="dark"] .btn-cta-gold:hover {
+    background-color: white !important;
+    color: var(--dark-color) !important;
+}
+
 .btn-cta-outline-adaptive {
-    border: 2px solid var(--hero-text);
+    border: 2px solid var(--hero-text) !important;
     color: var(--hero-text) !important;
-    background: transparent;
+    background: transparent !important;
     padding: 15px 40px;
     border-radius: 5px;
     font-weight: 700;
@@ -468,8 +531,9 @@ header.sticky {
 }
 
 .btn-cta-outline-adaptive:hover {
-    background: var(--hero-text);
+    background: var(--hero-text) !important;
     color: var(--bg-color) !important;
+    transform: translateY(-5px);
 }
 
 /* Section Common */
@@ -591,6 +655,42 @@ section {
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--accent-color);
+}
+
+/* Genre Cards Hover & Visibility */
+.genre-card {
+    text-decoration: none !important;
+    transition: var(--transition);
+}
+
+.genre-card .icon-box {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.genre-card:hover .icon-box {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08) !important;
+    background-color: white !important;
+    border-color: var(--accent-color) !important;
+}
+
+.genre-card h4 {
+    transition: var(--transition);
+}
+
+.genre-card:hover h4 {
+    color: var(--accent-color) !important;
+}
+
+[data-theme="dark"] .genre-card .icon-box {
+    background-color: #2d1e1a !important; /* Base secondary brown */
+    border: 1px solid rgba(255, 255, 255, 0.1) !important; /* Visible border in dark mode */
+}
+
+[data-theme="dark"] .genre-card:hover .icon-box {
+    background-color: #3e2723 !important; /* Slightly lighter on hover */
+    border-color: var(--accent-color) !important;
 }
 
 /* Animations */
@@ -901,8 +1001,10 @@ footer hr {
 }
 
 .sidebar-link:hover {
-    background: var(--soft-primary);
-    transform: translateX(5px);
+    background: rgba(205, 164, 52, 0.08) !important;
+    color: var(--primary-color) !important;
+    transform: translateX(10px);
+    border-left: 4px solid var(--accent-color);
 }
 
 .sidebar-link.active {
@@ -970,5 +1072,789 @@ footer hr {
     
     .sidebar-overlay.show {
         display: block;
+    }
+}
+
+/* --- FINAL NAVIGATION FIXES --- */
+
+/* Theme & RTL Toggles Visibility and Interaction */
+#theme-toggle, #rtl-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 45px !important;
+    height: 45px !important;
+    padding: 0 !important;
+    border: 2px solid var(--primary-color) !important;
+    color: var(--primary-color) !important;
+    background: transparent !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+#rtl-toggle {
+    width: auto !important;
+    padding: 0 15px !important;
+    font-size: 0.85rem !important;
+}
+
+#theme-toggle:hover, #rtl-toggle:hover {
+    background-color: var(--primary-color) !important;
+    color: var(--bg-color) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+    z-index: 10;
+}
+
+/* Dark Mode Overrides for Toggles */
+[data-theme="dark"] #theme-toggle, 
+[data-theme="dark"] #rtl-toggle {
+    border-color: var(--accent-color) !important;
+    color: var(--accent-color) !important;
+}
+
+[data-theme="dark"] #theme-toggle:hover, 
+[data-theme="dark"] #rtl-toggle:hover {
+    background-color: var(--accent-color) !important;
+    color: var(--bg-color) !important;
+}
+
+/* Login Button Dark Mode Visibility */
+[data-theme="dark"] .btn-login {
+    background-color: var(--accent-color) !important;
+    color: var(--dark-color) !important;
+    border: none !important;
+    font-weight: 700 !important;
+}
+
+[data-theme="dark"] .btn-login:hover {
+    background-color: #e5b32a !important;
+    transform: translateY(-3px) scale(1.05) !important;
+}
+
+/* RTL Text Alignment & Visibility in Light Mode */
+[dir="rtl"] {
+    text-align: right;
+}
+
+[dir="rtl"] .navbar-nav {
+    margin-right: auto !important;
+    margin-left: unset !important;
+}
+
+/* Ensure the RTL button text is clearly visible in light mode */
+#rtl-toggle {
+    font-family: 'Outfit', sans-serif !important;
+    letter-spacing: 0.05em;
+}
+
+/* Mobile Navbar Adjustments */
+@media (max-width: 1199.98px) {
+    .navbar-collapse {
+        background: var(--bg-color);
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 15px;
+        box-shadow: var(--soft-shadow);
+    }
+    
+    [data-theme="dark"] .navbar-collapse {
+        background: var(--card-bg);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+}
+
+/* --- HERO CTA BUTTON ENHANCEMENTS --- */
+/* Placing these at the end to ensure they override all other button styles */
+
+.btn-cta-gold {
+    background-color: var(--accent-color) !important;
+    color: #2d1e1a !important; /* Force dark brown for high contrast */
+    font-weight: 800 !important;
+    letter-spacing: 0.1em !important;
+    box-shadow: 0 4px 15px rgba(205, 164, 52, 0.4) !important;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.btn-cta-gold:hover {
+    background-color: #2d1e1a !important; /* Dark brown background on hover */
+    color: var(--accent-color) !important; /* Gold text on hover */
+    transform: translateY(-8px) scale(1.05) !important;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .btn-cta-gold {
+    background-color: var(--accent-color) !important;
+    color: #1a0f0d !important; /* Dark brown text for dark mode */
+}
+
+[data-theme="dark"] .btn-cta-gold:hover {
+    background-color: white !important;
+    color: #1a0f0d !important;
+    box-shadow: 0 12px 25px rgba(255, 255, 255, 0.2) !important;
+}
+
+.btn-cta-outline-adaptive {
+    border: 2.5px solid var(--hero-text) !important;
+    color: var(--hero-text) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.1em !important;
+    background: transparent !important;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.btn-cta-outline-adaptive:hover {
+    background-color: var(--hero-text) !important;
+    color: var(--bg-color) !important;
+    transform: translateY(-8px) scale(1.05) !important;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Featured Books "View Details" Buttons Visibility in Dark Mode */
+[data-theme="dark"] .btn-outline-primary {
+    color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+}
+
+[data-theme="dark"] .btn-outline-primary:hover {
+    background-color: var(--accent-color) !important;
+    color: var(--bg-color) !important;
+}
+
+/* Rare Finds / Collector's Edition visibility fixes */
+[data-theme="dark"] .badge.bg-warning {
+    color: #2d1e1a !important; /* Force dark text on yellow badge for readability */
+}
+
+[data-theme="dark"] .btn-login {
+    background-color: var(--accent-color) !important;
+    color: #2d1e1a !important;
+}
+
+[data-theme="dark"] .btn-login:hover {
+    background-color: #e5b32a !important;
+    color: #2d1e1a !important;
+}
+
+/* Star Rating Visibility in Dark Mode */
+[data-theme="dark"] .text-warning i,
+[data-theme="dark"] .bi-star-fill,
+[data-theme="dark"] .bi-star-half {
+    color: #ffc107 !important; /* Ensure gold stars remain vibrant in dark mode */
+}
+
+/* --- SELLER CARD VISIBILITY --- */
+.seller-card {
+    background-color: var(--cream-color) !important;
+    transition: var(--transition);
+}
+
+[data-theme="dark"] .seller-card {
+    background-color: #2d1e1a !important; /* Deep dark brown for seller section */
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .seller-card h4, 
+[data-theme="dark"] .seller-card p:not(.text-muted) {
+    color: #efebe9 !important;
+}
+
+/* --- HOME 2 HERO CTA SPECIFIC FIXES --- */
+/* Forcing visibility for Home 2 hero buttons as reported */
+
+.hero-section-centered .btn-cta-gold {
+    background-color: var(--accent-color) !important;
+    color: #2d1e1a !important;
+    border: none !important;
+    opacity: 1 !important;
+}
+
+.hero-section-centered .btn-cta-gold:hover {
+    background-color: #2d1e1a !important;
+    color: var(--accent-color) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4) !important;
+}
+
+.hero-section-centered .btn-cta-outline-adaptive {
+    border: 2px solid white !important;
+    color: white !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(5px);
+}
+
+.hero-section-centered .btn-cta-outline-adaptive:hover {
+    background: white !important;
+    color: #2d1e1a !important;
+    transform: translateY(-5px) !important;
+}
+
+/* Ensure Home 2 hero subtext is visible if background is too light */
+.hero-section-centered .hero-subtitle {
+     text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .hero-section-centered .btn-cta-outline-adaptive {
+    border-color: var(--accent-color) !important;
+    color: var(--accent-color) !important;
+}
+
+[data-theme="dark"] .hero-section-centered .btn-cta-outline-adaptive:hover {
+    background-color: var(--accent-color) !important;
+    color: #1a0f0d !important;
+}
+
+/* --- SPOTLIGHT SECTION VISIBILITY --- */
+/* Forcing high contrast for the spotlight feature regardless of dark/light theme */
+
+.spotlight-section {
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=2000') !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-color: #2d1e1a !important; /* Fallback */
+}
+
+.spotlight-section h2,
+.spotlight-section p,
+.spotlight-section h3,
+.spotlight-section div:not(.bg-white),
+.spotlight-section span:not(.text-warning) {
+    color: #efebe9 !important; /* Always off-white text for dark background */
+}
+
+.spotlight-section .text-warning {
+    color: #ffc107 !important;
+}
+
+/* --- CURATION SECTION OVERLAP FIXES --- */
+.curation-card {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Hide any background numbers if they exist and cause overlap */
+.curation-card::before,
+.curation-card::after {
+    display: none !important;
+    content: none !important;
+}
+
+.curation-card h4 {
+    margin-top: 0;
+    position: relative;
+    z-index: 5; /* Ensure title is on top */
+}
+
+[data-theme="dark"] .curation-card {
+    background-color: var(--card-bg) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* --- SHOP PAGE FORM VISIBILITY --- */
+[data-theme="dark"] .form-select {
+    background-color: #2d1e1a !important;
+    color: #efebe9 !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    /* Invert the bootstrap select arrow for dark background visibility */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23efebe9' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+}
+
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .btn-outline-primary,
+[data-theme="dark"] .btn-warning {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: #2d1e1a !important; /* Force high-contrast dark brown text */
+    font-weight: 700 !important;
+}
+
+[data-theme="dark"] .btn-primary:hover,
+[data-theme="dark"] .btn-outline-primary:hover,
+[data-theme="dark"] .btn-warning:hover {
+    background-color: #ffffff !important;
+    color: #2d1e1a !important;
+    border-color: #ffffff !important;
+    transform: translateY(-5px) !important;
+}
+
+/* --- PAGINATION BRANDING --- */
+.pagination {
+    gap: 8px;
+}
+
+.page-link {
+    border-radius: 8px !important;
+    border: 1px solid rgba(0,0,0,0.05) !important;
+    background-color: var(--card-bg) !important;
+    color: var(--dark-text) !important;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.page-link:hover {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.page-item.active .page-link {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+    color: #2d1e1a !important; /* Dark text on gold */
+    font-weight: 700;
+}
+
+[data-theme="dark"] .page-link {
+    background-color: #2d1e1a !important;
+    border-color: rgba(255, 255, 255, 0.05) !important;
+    color: #efebe9 !important;
+}
+
+[data-theme="dark"] .page-link:hover {
+    background-color: var(--accent-color) !important;
+    color: #1a0f0d !important;
+}
+
+[data-theme="dark"] .page-item.active .page-link {
+    background-color: var(--accent-color) !important;
+}
+
+.page-item.disabled .page-link {
+    opacity: 0.5;
+    background-color: var(--bg-color) !important;
+    pointer-events: none;
+}
+
+/* --- BOOK CARD DARK MODE VISIBILITY --- */
+[data-theme="dark"] .book-card .book-title a,
+[data-theme="dark"] .book-card .book-title {
+    color: #efebe9 !important; /* Force off-white for book titles regardless of Bootstrap utility classes */
+}
+
+[data-theme="dark"] .card-body .btn-link {
+    color: var(--accent-color) !important;
+}
+
+/* --- PRICE AND ADD TO CART DARK MODE FIXES --- */
+[data-theme="dark"] .book-price {
+    color: #cda434 !important; /* Force Golden color for prices in dark mode */
+}
+
+[data-theme="dark"] .btn-outline-primary,
+[data-theme="dark"] .btn-add-cart {
+    color: #cda434 !important; /* Force Golden text for 'Add to Cart' buttons in dark mode */
+}
+
+[data-theme="dark"] .btn-outline-primary:hover,
+[data-theme="dark"] .btn-add-cart:hover {
+    background-color: #cda434 !important;
+    color: #2d1e1a !important; /* Cross over to dark text on gold background on hover */
+}
+
+/* --- CONTACT PAGE SEND MESSAGE HOVER --- */
+.btn-primary {
+    transition: var(--transition) !important;
+    color: white !important; /* Force white text for primary buttons in light mode */
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-color) !important;
+    border-color: var(--dark-color) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
+}
+
+[data-theme="dark"] .btn-primary {
+    color: #2d1e1a !important; /* Maintain dark text on light-beige button in dark mode */
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background-color: #ffffff !important;
+    color: #2d1e1a !important;
+    border-color: #ffffff !important;
+}
+
+/* Ensure Contact Dropdown Arrow Visibility */
+[data-theme="dark"] .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23efebe9' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+}
+
+/* --- PROMO SECTION SUBMIT BUTTON HOVER --- */
+.bg-primary a.btn-light {
+    transition: var(--transition);
+}
+
+.bg-primary a.btn-light:hover {
+    background-color: var(--accent-color) !important;
+    color: #2d1e1a !important;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* --- PRICING PAGE FEATURE CARDS --- */
+.feature-card {
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.03) !important;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
+
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.feature-card:hover .icon-circle {
+    transform: scale(1.1) rotate(5deg);
+}
+
+[data-theme="dark"] .feature-card {
+    background-color: #2d1e1a !important;
+    border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* --- ACCORDION DARK MODE VISIBILITY FIXES --- */
+[data-theme="dark"] .accordion-item {
+    background-color: transparent !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .accordion-button {
+    background-color: #2d1e1a !important;
+    color: #efebe9 !important;
+    box-shadow: none !important;
+}
+
+[data-theme="dark"] .accordion-button::after {
+    filter: invert(1) grayscale(100%) brightness(200%); /* Make arrow white */
+}
+
+[data-theme="dark"] .accordion-button:not(.collapsed) {
+    background-color: rgba(215, 204, 200, 0.1) !important;
+    color: var(--accent-color) !important;
+}
+
+[data-theme="dark"] .accordion-body {
+    background-color: #1a0f0d !important;
+    color: rgba(239, 235, 233, 0.8) !important;
+}
+
+/* --- THEME & RTL TOGGLE HOVER EFFECTS --- */
+#theme-toggle,
+#rtl-toggle {
+    transition: var(--transition) !important;
+}
+
+#theme-toggle:hover,
+#rtl-toggle:hover {
+    background-color: var(--accent-color) !important;
+    color: #2d1e1a !important;
+    border-color: var(--accent-color) !important;
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 5px 15px rgba(205, 164, 52, 0.3);
+}
+
+[data-theme="dark"] #theme-toggle:hover,
+[data-theme="dark"] #rtl-toggle:hover {
+    background-color: #ffffff !important;
+    color: #2d1e1a !important;
+    border-color: #ffffff !important;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* --- DASHBOARD TABLES & CARDS DARK MODE FIXES --- */
+[data-theme="dark"] .stats-card,
+[data-theme="dark"] .dashboard-section .bg-white,
+[data-theme="dark"] .dashboard-section .card {
+    background-color: #2d1e1a !important; /* Force deep chocolate brown */
+    color: #efebe9 !important; /* Force high contrast off-white text */
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .table {
+    color: #efebe9 !important; /* Force all table text to be visible */
+    --bs-table-bg: transparent !important;
+    --bs-table-border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .table thead,
+[data-theme="dark"] .table-light {
+    --bs-table-bg: rgba(255, 255, 255, 0.05) !important;
+    color: var(--accent-color) !important;
+}
+
+[data-theme="dark"] .table-hover tbody tr:hover {
+    --bs-table-hover-bg: rgba(205, 164, 52, 0.1) !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] small.text-muted {
+    color: rgba(239, 235, 233, 0.7) !important; /* Force legible muted text */
+}
+
+/* Add to cart and general dashboard CTA buttons in dark mode visibility */
+[data-theme="dark"] .dashboard-section .btn-primary,
+[data-theme="dark"] .dashboard-section .btn-outline-primary,
+[data-theme="dark"] .dashboard-section .btn-outline-secondary,
+[data-theme="dark"] .table .btn-primary {
+    background-color: var(--primary-color) !important;
+    color: #2d1e1a !important; /* High contrast dark brown labels */
+    border-color: var(--primary-color) !important;
+    font-weight: 700 !important;
+}
+
+[data-theme="dark"] .dashboard-section .btn-primary:hover,
+[data-theme="dark"] .dashboard-section .btn-outline-primary:hover,
+[data-theme="dark"] .dashboard-section .btn-outline-secondary:hover,
+[data-theme="dark"] .table .btn-primary:hover {
+    background-color: #ffffff !important;
+    color: #2d1e1a !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* --- DASHBOARD IMAGE CONSISTENCY --- */
+.dashboard-section table img,
+.dashboard-section .listing-img {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+    display: block !important;
+}
+
+/* --- ACTIVITY ICON HOVER EFFECTS --- */
+.activity-icon {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: pointer;
+}
+
+.activity-icon:hover {
+    background-color: var(--accent-color) !important;
+    color: #2d1e1a !important;
+    transform: scale(1.15) rotate(10deg);
+    box-shadow: 0 4px 10px rgba(205, 164, 52, 0.3);
+}
+
+[data-theme="dark"] .activity-icon {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: var(--accent-color) !important;
+}
+
+[data-theme="dark"] .activity-icon:hover {
+    background-color: #ffffff !important;
+    color: #2d1e1a !important;
+}
+
+/* --- ADMIN DASHBOARD DARK MODE FORCED OVERRIDES --- */
+[data-theme="dark"] .dashboard-section .bg-white,
+[data-theme="dark"] .dashboard-section .card,
+[data-theme="dark"] .dashboard-section .p-4.bg-white {
+    background-color: #2d1e1a !important; /* Force deep chocolate brown background */
+    color: #efebe9 !important; /* Force off-white high-contrast text */
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-theme="dark"] .dashboard-section .text-muted,
+[data-theme="dark"] .dashboard-section small.text-muted {
+    color: rgba(239, 235, 233, 0.7) !important;
+}
+
+/* Fix generic Bootstrap secondary buttons in dark mode tables */
+[data-theme="dark"] .table .btn-outline-secondary {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    color: #efebe9 !important;
+}
+
+[data-theme="dark"] .table .btn-outline-secondary:hover {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+    color: #2d1e1a !important;
+}
+
+[data-theme="dark"] .table-light {
+    --bs-table-bg: #3d2c29 !important;
+    --bs-table-color: var(--accent-color) !important;
+    font-weight: 700 !important;
+}
+
+[data-theme="dark"] .table {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* --- AUTH PAGES (LOGIN/SIGNUP) ENHANCEMENTS --- */
+.login-card, .signup-card {
+    transition: var(--transition);
+}
+
+/* Checkbox Visibility Fix */
+.form-check-input {
+    border: 2px solid rgba(0,0,0,0.1) !important; /* Visible in light mode */
+    transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .form-check-input {
+    border-color: rgba(255, 255, 255, 0.3) !important; /* Visible in dark mode */
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.form-check-input:checked {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+}
+
+/* Forced Auth Buttons Dark Mode Visibility & Hover */
+[data-theme="dark"] .login-card .btn-primary,
+[data-theme="dark"] .signup-card .btn-primary {
+    background-color: #d7ccc8 !important; /* Forced beige */
+    color: #2d1e1a !important; /* Forced dark brown */
+    border-color: #d7ccc8 !important;
+    font-weight: 800 !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .login-card .btn-primary:hover,
+[data-theme="dark"] .signup-card .btn-primary:hover {
+    background-color: #ffffff !important;
+    color: #2d1e1a !important;
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Input Styles in Auth Cards for Dark Mode */
+[data-theme="dark"] .login-card .bg-light,
+[data-theme="dark"] .signup-card .bg-light {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .login-card .form-control::placeholder,
+[data-theme="dark"] .signup-card .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* --- AUTH PAGE LINK HIGHLIGHTS (FORCED) --- */
+.login-card a, 
+.signup-card a {
+    color: #cda434 !important; /* Forced LitLoom Gold */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+}
+
+.login-card a:hover, 
+.signup-card a:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 15px rgba(205, 164, 52, 0.5);
+    background-color: rgba(205, 164, 52, 0.1);
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+
+[data-theme="dark"] .login-card a:hover, 
+[data-theme="dark"] .signup-card a:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- AUTH PAGE FORM SELECT FIXES --- */
+[data-theme="dark"] .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+    background-size: 16px 12px !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 0 0 0.25rem rgba(205, 164, 52, 0.25) !important;
+    color: #ffffff !important;
+}
+
+/* --- MOBILE NAVIGATION AUTH BUTTONS --- */
+.navbar-collapse .btn-login,
+.navbar-collapse .btn-signup {
+    width: 100% !important;
+    margin: 5px 0 !important;
+}
+
+[data-theme="dark"] .navbar-collapse .btn-login {
+    background-color: #cda434 !important; /* Forced LitLoom Gold */
+    color: #2d1e1a !important; /* High contrast dark brown */
+    border: none !important;
+}
+
+[data-theme="dark"] .navbar-collapse .btn-login:hover {
+    background-color: #ffffff !important;
+    color: #2d1e1a !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .navbar-collapse .btn-signup {
+    border: 2px solid rgba(255, 255, 255, 0.4) !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .navbar-collapse .btn-signup:hover {
+    background-color: #ffffff !important;
+    color: #2d1e1a !important;
+    border-color: #ffffff !important;
+}
+
+/* --- MOBILE HERO TEXT RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .hero-section, .hero-section-centered {
+        padding-top: 140px !important; /* Extra clearance for fixed header */
+        padding-bottom: 60px !important;
+        min-height: auto !important;
+    }
+    .hero-title {
+        font-size: 2.2rem !important; 
+        padding: 0 20px !important;
+        margin-bottom: 20px !important;
+        line-height: 1.2 !important;
+        text-align: center !important;
+    }
+    .hero-subtitle {
+        font-size: 1rem !important;
+        padding: 0 25px !important;
+        line-height: 1.6 !important;
+        margin-bottom: 30px !important;
+        text-align: center !important;
+        max-width: 100% !important;
+    }
+    .hero-content {
+        padding: 20px 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+}
+
+/* --- RESPONSIVE BUTTON UTILITIES --- */
+@media (max-width: 767px) {
+    .w-100-mobile {
+        width: 100% !important;
+        max-width: 320px !important;
+        margin: 0 auto !important;
     }
 }

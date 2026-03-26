@@ -134,7 +134,7 @@
         <div class="container hero-content animate__animated animate__zoomIn">
             <h1 class="hero-title">Where Every Page Tells its Own Story.</h1>
             <p class="hero-subtitle mb-5">A sanctuary for book hunters, collectors, and dreamers.</p>
-            <div class="d-flex justify-content-center gap-3">
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
                 <a href="shop.html" class="btn btn-cta btn-cta-gold px-5">Start Browsing</a>
                 <a href="#collections" class="btn btn-cta-outline-adaptive px-5">Our Collections</a>
             </div>
@@ -183,7 +183,7 @@
     </section>
 
     <!-- 3. Book of the Month Spotlight -->
-    <section class="reveal reveal-right" style="background-color: var(--primary-color); color: var(--light-text);">
+    <section class="reveal reveal-right spotlight-section" style="background-color: var(--primary-color);">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-5 mb-4 mb-md-0">
@@ -194,12 +194,12 @@
                 </div>
                 <div class="col-md-7 ps-lg-5">
                     <span class="text-warning mb-2 d-block fw-bold">MARCH SPOTLIGHT</span>
-                    <h2 class="display-5 mb-4" style="color: var(--light-text);">Echoes of the Silk Road</h2>
-                    <p class="lead mb-4" style="color: var(--light-text);">A mesmerizing journey through time and geography. This rare secondhand copy
+                    <h2 class="display-5 mb-4">Echoes of the Silk Road</h2>
+                    <p class="lead mb-4">A mesmerizing journey through time and geography. This rare secondhand copy
                         includes handwritten notes from its original 1920s owner.</p>
                     <div class="mb-5">
-                        <p class="mb-1 fw-bold" style="color: var(--light-text);">Condition: Very Good (Aged Paper)</p>
-                        <p class="mb-0" style="color: var(--light-text);">"The best travelogue of its generation." - NY Times (1922)</p>
+                        <p class="mb-1 fw-bold">Condition: Very Good (Aged Paper)</p>
+                        <p class="mb-0">"The best travelogue of its generation." - NY Times (1922)</p>
                     </div>
                     <div class="d-flex align-items-center gap-4">
                         <h3 class="mb-0 text-warning fs-1">$45.00</h3>
@@ -216,7 +216,7 @@
             <h2 class="section-title text-center d-block mx-auto mb-5">Voices of Our Sellers</h2>
             <div class="row justify-content-center mt-5">
                 <div class="col-md-8">
-                    <div class="card border-0 shadow-lg p-5 rounded-4 bg-cream">
+                    <div class="card border-0 shadow-lg p-5 rounded-4 seller-card">
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
                             class="rounded-circle mx-auto mb-4 border border-5 border-white shadow-sm" width="120" height="120"
                             alt="Arthur Bennett">
@@ -224,7 +224,9 @@
                             my entire childhood library. It was seamless and heartfelt."</p>
                         <h4 class="mt-4">Arthur Bennett</h4>
                         <p class="text-muted">Seller since 2024 • 140 Books Sold</p>
-                        <a href="sell.html" class="btn btn-outline-primary mt-3">Start Selling Today</a>
+                        <div class="d-grid mt-4">
+                            <a href="sell.html" class="btn btn-cta-gold btn-lg">Start Selling Today</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -255,32 +257,64 @@
     <section class="reveal reveal-up bg-light">
         <div class="container">
             <h2 class="section-title text-center d-block mx-auto mb-5">Common Curiosities</h2>
-            <div class="row mt-5">
-                <div class="col-md-6 mb-4">
-                    <div class="p-4 bg-white rounded shadow-sm">
-                        <h5>Are these actual physical books?</h5>
-                        <p class="text-muted">Yes, we strictly deal in physical secondhand books. Each copy is unique.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="p-4 bg-white rounded shadow-sm">
-                        <h5>How do you grade book condition?</h5>
-                        <p class="text-muted">We use a strict 5-tier grading system (Mint, Near Mint, Very Good, Good,
-                            Acceptable).</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="p-4 bg-white rounded shadow-sm">
-                        <h5>Can I sell my entire collection at once?</h5>
-                        <p class="text-muted">Absolutely! We offer bulk appraisal for collections over 50 books.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="p-4 bg-white rounded shadow-sm">
-                        <h5>Do you ship internationally?</h5>
-                        <p class="text-muted">Currently, we ship to over 25 countries worldwide with tracked shipping.
-                        </p>
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-8">
+                    <div class="accordion accordion-flush" id="faqAccordion">
+                        <!-- FAQ 1 -->
+                        <div class="accordion-item bg-transparent mb-3 border border-light-subtle rounded-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded-3 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Are these actual physical books?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Yes, we strictly deal in physical secondhand books. Each copy is unique and carries its own history through its pages.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 2 -->
+                        <div class="accordion-item bg-transparent mb-3 border border-light-subtle rounded-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded-3 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    How do you grade book condition?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    We use a strict 5-tier grading system (Mint, Near Mint, Very Good, Good, Acceptable) to ensure transparency. Every book is manually inspected by our curators.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 3 -->
+                        <div class="accordion-item bg-transparent mb-3 border border-light-subtle rounded-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded-3 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Can I sell my entire collection at once?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Absolutely! We offer bulk appraisal for collections over 50 books. We can even arrange for local pickup in certain literary districts.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 4 -->
+                        <div class="accordion-item bg-transparent mb-3 border border-light-subtle rounded-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded-3 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    Do you ship internationally?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Currently, we ship to over 25 countries worldwide with tracked shipping. Shipping rates and times vary depending on your literary destination.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -338,7 +372,6 @@
                         <a href="#" class="text-white text-decoration-none small">Privacy Policy</a>
                         <a href="#" class="text-white text-decoration-none small">Terms of Service</a>
                     </div>
-                    <a href="#" class="btn btn-sm btn-outline-light rounded-circle ms-2" style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; opacity: 0.6;"><i class="bi bi-arrow-up"></i></a>
                 </div>
             </div>
         </div>

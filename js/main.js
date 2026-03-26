@@ -117,7 +117,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         sections.forEach(sec => {
             sec.classList.remove('active');
-            if (sec.id === targetId) sec.classList.add('active');
+            if (sec.id === targetId) {
+                sec.classList.add('active');
+                
+                // --- Update Topbar Title Dynamically ---
+                const titleArea = document.getElementById('dashboard-title-area');
+                if (titleArea) {
+                    const title = sec.getAttribute('data-title') || 'Dashboard';
+                    const subtitle = sec.getAttribute('data-subtitle') || '';
+                    const h1 = titleArea.querySelector('h1');
+                    const p = titleArea.querySelector('p');
+                    if (h1) h1.textContent = title;
+                    if (p) p.textContent = subtitle;
+                }
+            }
         });
         
         sidebarLinks.forEach(link => {
@@ -191,5 +204,24 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    /* --- BACK TO TOP BUTTON LOGIC --- */
+    const btnTop = document.getElementById('btn-top');
+    if (btnTop) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                btnTop.style.display = 'block';
+            } else {
+                btnTop.style.display = 'none';
+            }
+        });
+
+        btnTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 
 });
