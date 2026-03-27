@@ -38,6 +38,7 @@
     --soft-dark: rgba(255, 255, 255, 0.1);
     --footer-bg: #2d1e1a;
     --footer-text: #efebe9;
+    color-scheme: dark; /* Force native browser elements like dropdowns to dark theme */
 }
 
 [data-theme="dark"] label,
@@ -118,6 +119,7 @@
 [data-theme="dark"] .form-select {
     background-color: #3e2723 !important; /* Slightly lighter chocolate for inputs */
     border-color: rgba(255, 255, 255, 0.3) !important;
+    color: #efebe9 !important; /* Force high-contrast text color for active typing */
 }
 
 [data-theme="dark"] .form-control::placeholder {
@@ -326,9 +328,9 @@ header.sticky {
 .btn-login {
     background-color: var(--primary-color);
     color: white !important;
-    padding: 8px 25px;
+    padding: 10px 25px; /* Unified with signup */
     border-radius: 50px;
-    border: none;
+    border: 2px solid var(--primary-color); /* Added border for alignment */
     font-weight: 600;
     box-shadow: var(--soft-shadow);
     transition: var(--transition);
@@ -389,8 +391,14 @@ header.sticky {
 
 [data-theme="dark"] #theme-toggle, 
 [data-theme="dark"] #rtl-toggle {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
+    border-color: var(--accent-color) !important;
+    color: var(--accent-color) !important;
+    background-color: transparent !important; /* Ensure background is transparent in dark mode */
+}
+
+[data-theme="dark"] #theme-toggle i, 
+[data-theme="dark"] #rtl-toggle i {
+    color: inherit !important; /* Ensure icons inherit the gold color */
 }
 
 [data-theme="dark"] #theme-toggle:hover, 
@@ -521,8 +529,8 @@ header.sticky {
 }
 
 .btn-cta-outline-adaptive {
-    border: 2px solid var(--hero-text) !important;
-    color: var(--hero-text) !important;
+    border: 2px solid var(--primary-color) !important; /* Force primary brown in light mode */
+    color: var(--primary-color) !important;
     background: transparent !important;
     padding: 15px 40px;
     border-radius: 5px;
@@ -531,9 +539,19 @@ header.sticky {
 }
 
 .btn-cta-outline-adaptive:hover {
-    background: var(--hero-text) !important;
-    color: var(--bg-color) !important;
+    background: var(--primary-color) !important;
+    color: white !important;
     transform: translateY(-5px);
+}
+
+[data-theme="dark"] .btn-cta-outline-adaptive {
+    border: 2px solid var(--accent-color) !important; /* Gold on Dark background */
+    color: var(--accent-color) !important;
+}
+
+[data-theme="dark"] .btn-cta-outline-adaptive:hover {
+    background: var(--accent-color) !important;
+    color: #1a0f0d !important;
 }
 
 /* Section Common */
@@ -1446,7 +1464,9 @@ footer hr {
 
 [data-theme="dark"] .btn-outline-primary,
 [data-theme="dark"] .btn-add-cart {
-    color: #cda434 !important; /* Force Golden text for 'Add to Cart' buttons in dark mode */
+    background-color: #d7ccc8 !important; /* Force light beige background */
+    color: #2d1e1a !important; /* Force high-contrast dark brown text */
+    border-color: #d7ccc8 !important;
 }
 
 [data-theme="dark"] .btn-outline-primary:hover,
@@ -1478,9 +1498,15 @@ footer hr {
     border-color: #ffffff !important;
 }
 
-/* Ensure Contact Dropdown Arrow Visibility */
+/* Ensure Contact & Shop Dropdown Arrow and Text Visibility */
 [data-theme="dark"] .form-select {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23efebe9' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+    color: #efebe9 !important;
+}
+
+[data-theme="dark"] .form-select option {
+    background-color: #2d1e1a !important; /* Dark background for dropdown options */
+    color: #efebe9 !important; /* Light text for options */
 }
 
 /* --- PROMO SECTION SUBMIT BUTTON HOVER --- */
@@ -1587,12 +1613,21 @@ footer hr {
     color: #efebe9 !important; /* Force all table text to be visible */
     --bs-table-bg: transparent !important;
     --bs-table-border-color: rgba(255, 255, 255, 0.1) !important;
+    --bs-table-color: #efebe9 !important; /* Force Bootstrap table color */
+}
+
+[data-theme="dark"] .table td,
+[data-theme="dark"] .table th,
+[data-theme="dark"] .dashboard-section table tbody td {
+    color: #efebe9 !important; /* Extremely aggressive force for row text */
 }
 
 [data-theme="dark"] .table thead,
-[data-theme="dark"] .table-light {
-    --bs-table-bg: rgba(255, 255, 255, 0.05) !important;
-    color: var(--accent-color) !important;
+[data-theme="dark"] .table-light,
+[data-theme="dark"] .table thead th {
+    background-color: #3d2c29 !important; /* Slightly lighter brown for contrast headers */
+    --bs-table-bg: #3d2c29 !important;
+    color: var(--accent-color) !important; /* Gold text for headers */
 }
 
 [data-theme="dark"] .table-hover tbody tr:hover {
@@ -1601,19 +1636,71 @@ footer hr {
 }
 
 [data-theme="dark"] .text-muted,
-[data-theme="dark"] small.text-muted {
-    color: rgba(239, 235, 233, 0.7) !important; /* Force legible muted text */
+[data-theme="dark"] small.text-muted,
+[data-theme="dark"] .text-muted.small {
+    color: #ffffff !important; /* Force pure white for dark mode */
+    opacity: 0.9 !important;
+}
+
+/* --- BADGE DARK MODE FIXES (FORCED) --- */
+[data-theme="dark"] .badge {
+    padding: 8px 12px !important;
+}
+
+[data-theme="dark"] .badge.bg-success-subtle,
+[data-theme="dark"] .badge.bg-warning-subtle,
+[data-theme="dark"] .badge.bg-info-subtle,
+[data-theme="dark"] .badge.bg-danger-subtle {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .text-info { color: #81d4fa !important; }
+[data-theme="dark"] .text-success { color: #a5d6a7 !important; }
+[data-theme="dark"] .text-warning { color: #fff176 !important; }
+[data-theme="dark"] .text-danger { color: #ef9a9a !important; }
+[data-theme="dark"] .text-primary { color: var(--accent-color) !important; }
+
+/* Force Badge Text Contrast */
+[data-theme="dark"] .badge.text-primary,
+[data-theme="dark"] .badge.text-success,
+[data-theme="dark"] .badge.text-info,
+[data-theme="dark"] .badge.text-warning,
+[data-theme="dark"] .badge.text-danger {
+    color: #ffffff !important; /* White text on subtle badges for dark mode for clarity */
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 
 /* Add to cart and general dashboard CTA buttons in dark mode visibility */
 [data-theme="dark"] .dashboard-section .btn-primary,
 [data-theme="dark"] .dashboard-section .btn-outline-primary,
 [data-theme="dark"] .dashboard-section .btn-outline-secondary,
-[data-theme="dark"] .table .btn-primary {
+[data-theme="dark"] .table .btn-primary,
+[data-theme="dark"] .table .btn-outline-secondary,
+[data-theme="dark"] .table .btn-outline-danger,
+[data-theme="dark"] .table .btn-sm {
     background-color: var(--primary-color) !important;
     color: #2d1e1a !important; /* High contrast dark brown labels */
     border-color: var(--primary-color) !important;
     font-weight: 700 !important;
+    opacity: 1 !important;
+}
+
+[data-theme="dark"] .table .btn-outline-danger {
+    background-color: #ef9a9a !important; /* Light red for danger buttons in dark mode text area */
+    border-color: #ef9a9a !important;
+}
+
+/* --- GLOBAL HIGH CONTRAST MUTED TEXT --- */
+.text-muted {
+    color: #000000 !important; /* Force black color in light mode as requested */
+    opacity: 0.7; /* Maintain a subtle muted aesthetic with high contrast */
+}
+
+[data-theme="dark"] .text-muted {
+    color: #ffffff !important; /* Force white color in dark mode as requested */
+    opacity: 0.8 !important;
 }
 
 [data-theme="dark"] .dashboard-section .btn-primary:hover,
@@ -1662,7 +1749,9 @@ footer hr {
 /* --- ADMIN DASHBOARD DARK MODE FORCED OVERRIDES --- */
 [data-theme="dark"] .dashboard-section .bg-white,
 [data-theme="dark"] .dashboard-section .card,
-[data-theme="dark"] .dashboard-section .p-4.bg-white {
+[data-theme="dark"] .dashboard-section .p-4.bg-white,
+[data-theme="dark"] .bg-soft-primary,
+[data-theme="dark"] .bg-soft-gold {
     background-color: #2d1e1a !important; /* Force deep chocolate brown background */
     color: #efebe9 !important; /* Force off-white high-contrast text */
     border: 1px solid rgba(255, 255, 255, 0.05) !important;
@@ -1751,10 +1840,16 @@ footer hr {
 /* --- AUTH PAGE LINK HIGHLIGHTS (FORCED) --- */
 .login-card a, 
 .signup-card a {
-    color: #cda434 !important; /* Forced LitLoom Gold */
+    color: #5d4037 !important; /* High contrast brand chocolate brown for light mode */
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-    text-decoration: none !important;
+    text-decoration: underline !important;
     font-weight: 700 !important;
+}
+
+[data-theme="dark"] .login-card a, 
+[data-theme="dark"] .signup-card a {
+    color: var(--accent-color) !important; /* Maintain Brand Gold for Dark Mode high visibility */
+    text-decoration: none !important;
 }
 
 .login-card a:hover, 
@@ -1858,3 +1953,81 @@ footer hr {
         margin: 0 auto !important;
     }
 }
+
+
+/* --- BACK TO TOP BUTTON DARK MODE FORCED --- */
+#btn-top {
+    transition: var(--transition) !important;
+}
+
+#btn-top:hover {
+    transform: translateY(-5px) !important;
+    background-color: var(--dark-color) !important;
+    border-color: var(--dark-color) !important;
+    color: var(--accent-color) !important;
+}
+
+[data-theme="dark"] #btn-top {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+    color: #1a0f0d !important; /* Dark icon on gold button */
+}
+
+[data-theme="dark"] #btn-top i {
+    color: #1a0f0d !important; /* Ensure icon is dark for contrast */
+}
+
+[data-theme="dark"] #btn-top:hover {
+    background-color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+/* Force baseline alignment for header buttons */
+
+.header-actions-container {
+    display: flex !important;
+    align-items: center !important;
+}
+
+[data-theme="dark"] label.form-label {
+    color: #efebe9 !important; /* Ensure labels are clearly visible in dark mode */
+    font-weight: 600 !important;
+}
+
+[data-theme="dark"] .form-select option {
+    background-color: #3e2723 !important; /* Correct dark background for dropdown menu */
+    color: #efebe9 !important; /* Force visible text even in open menu states */
+}
+
+/* --- MOBILE CARD TABLE ENHANCEMENTS --- */
+@media (max-width: 768px) {
+    .dashboard-section table thead {
+        border-bottom: 3px solid rgba(93, 64, 55, 0.25) !important; /* Thick prominent header line */
+        display: block !important;
+        margin-bottom: 12px !important;
+        padding-bottom: 12px !important;
+    }
+
+    .dashboard-section table tbody tr {
+        border-bottom: 2px solid rgba(0, 0, 0, 0.1) !important; /* Clearly visible row separator */
+        display: block !important;
+        padding-bottom: 22px !important;
+        margin-bottom: 22px !important;
+    }
+
+    [data-theme="dark"] .dashboard-section table thead {
+        border-bottom-color: rgba(255, 255, 255, 0.25) !important;
+    }
+
+    [data-theme="dark"] .dashboard-section table tbody tr {
+        border-bottom-color: rgba(255, 255, 255, 0.15) !important;
+    }
+
+    /* Remove border from last row to keep it clean */
+    .dashboard-section table tbody tr:last-child {
+        border-bottom: none !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+}
+
