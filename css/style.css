@@ -2029,5 +2029,28 @@ footer hr {
         margin-bottom: 0 !important;
         padding-bottom: 0 !important;
     }
+
+    /* Fix misaligned icons (e.g., delete trash) horizontally in mobile rows */
+    .dashboard-section .d-flex.align-items-center i,
+    .dashboard-section .d-flex.align-items-center .bi,
+    .dashboard-section td i,
+    .dashboard-section td .bi,
+    .dashboard-section .text-danger i {
+        display: inline-flex !important;
+        align-items: center !important;
+        vertical-align: middle !important;
+        line-height: normal !important;
+        transform: translateY(2px); /* Specifically for icon+small text alignment */
+    }
+
+    .dashboard-section .d-flex.justify-content-between {
+        align-items: center !important;
+    }
+
+    /* Force high contrast Red for trash icons */
+    .bi-trash, .text-danger i {
+        color: #dc3545 !important;
+        cursor: pointer;
+    }
 }
 
