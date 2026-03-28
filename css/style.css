@@ -100,7 +100,7 @@
 
 .dashboard-section {
     display: none;
-    min-height: calc(100vh - 150px);
+    min-height: auto;
     opacity: 0;
 }
 
@@ -801,6 +801,18 @@ footer p {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Override for social icons in primary dark background containers */
+.bg-primary .social-icons a {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.bg-primary .social-icons a:hover {
+    background: #ffffff !important;
+    color: var(--primary-color) !important;
+}
+
 .social-icons a:hover {
     background: var(--accent-color);
     color: white !important;
@@ -1296,8 +1308,8 @@ footer hr {
 }
 
 .hero-section-centered .btn-cta-outline-adaptive {
-    border: 2px solid white !important;
-    color: white !important;
+    border: 2px solid var(--primary-color) !important;
+    color: var(--primary-color) !important;
     background: rgba(255, 255, 255, 0.1) !important;
     backdrop-filter: blur(5px);
 }
@@ -1999,17 +2011,32 @@ footer hr {
     color: #efebe9 !important; /* Force visible text even in open menu states */
 }
 
+/* --- DASHBOARD TABLE ENHANCEMENTS (DESKTOP) --- */
+.dashboard-section table tbody td {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
+[data-theme="dark"] .dashboard-section table tbody td {
+    border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dashboard-section table tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
 /* --- MOBILE CARD TABLE ENHANCEMENTS --- */
 @media (max-width: 768px) {
     .dashboard-section table thead {
-        border-bottom: 3px solid rgba(93, 64, 55, 0.25) !important; /* Thick prominent header line */
+        border-bottom: 2px solid rgba(93, 64, 55, 0.15) !important; /* Thinner, more subtle header line */
         display: block !important;
-        margin-bottom: 12px !important;
-        padding-bottom: 12px !important;
+        margin-bottom: 15px !important;
+        padding-bottom: 15px !important;
     }
 
     .dashboard-section table tbody tr {
-        border-bottom: 2px solid rgba(0, 0, 0, 0.1) !important; /* Clearly visible row separator */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important; /* Slightly more defined thin divider */
         display: block !important;
         padding-bottom: 22px !important;
         margin-bottom: 22px !important;
@@ -2020,7 +2047,7 @@ footer hr {
     }
 
     [data-theme="dark"] .dashboard-section table tbody tr {
-        border-bottom-color: rgba(255, 255, 255, 0.15) !important;
+        border-bottom-color: rgba(255, 255, 255, 0.12) !important;
     }
 
     /* Remove border from last row to keep it clean */
