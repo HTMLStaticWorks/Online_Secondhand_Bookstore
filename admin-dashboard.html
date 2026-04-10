@@ -43,6 +43,8 @@
              <a class="sidebar-link" data-target="books"><i class="bi bi-book me-2"></i> Manage Books</a>
              <a class="sidebar-link" data-target="users"><i class="bi bi-people me-2"></i> User Base</a>
              <a class="sidebar-link" data-target="orders"><i class="bi bi-cart me-2"></i> Global Orders</a>
+             <a class="sidebar-link" data-target="payouts"><i class="bi bi-cash-stack me-2"></i> Seller Payouts</a>
+             <a class="sidebar-link" data-target="messages"><i class="bi bi-chat-dots me-2"></i> Support <span class="badge bg-danger ms-2" style="font-size: 0.6rem;">3</span></a>
              <a class="sidebar-link" data-target="reports"><i class="bi bi-bar-chart me-2"></i> Reports</a>
              <a class="sidebar-link" data-target="settings"><i class="bi bi-gear me-2"></i> Settings</a>
              <hr class="opacity-25 my-4">
@@ -70,21 +72,104 @@
                 <!-- Title moved to topbar -->
                 <div class="row g-4 mb-5">
                     <div class="col-6 col-md-3">
-                        <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-start border-5 border-warning">
-                            <h6 class="text-muted small">NEW ORDERS</h6>
-                            <h3 class="fw-bold mb-0 text-warning">142</h3>
+                        <div class="stats-card h-100" style="border-left-color: var(--accent-color);">
+                            <small class="text-muted fw-bold text-uppercase">New Orders</small>
+                            <h2 class="display-6 fw-bold mb-0 text-warning">142</h2>
+                            <p class="smallest text-muted mt-2 mb-0"><i class="bi bi-arrow-up text-success"></i> +12% from yesterday</p>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
-                        <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-start border-5 border-warning opacity-75">
-                            <h6 class="text-muted small">LISTINGS</h6>
-                            <h3 class="fw-bold mb-0 text-warning">1,450</h3>
+                        <div class="stats-card h-100" style="border-left-color: var(--primary-color);">
+                            <small class="text-muted fw-bold text-uppercase">Total Revenue</small>
+                            <h2 class="display-6 fw-bold mb-0">$12.4k</h2>
+                            <p class="smallest text-muted mt-2 mb-0"><i class="bi bi-arrow-up text-success"></i> +8% this month</p>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
-                        <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-start border-5 border-warning opacity-50">
-                            <h6 class="text-muted small">ACTIVE USERS</h6>
-                            <h3 class="fw-bold mb-0 text-warning">8.4k</h3>
+                        <div class="stats-card h-100" style="border-left-color: var(--secondary-color);">
+                            <small class="text-muted fw-bold text-uppercase">Pending Appraisals</small>
+                            <h2 class="display-6 fw-bold mb-0">24</h2>
+                            <p class="smallest text-muted mt-2 mb-0 text-danger"><i class="bi bi-exclamation-circle"></i> Requires action</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="stats-card h-100" style="border-left-color: var(--accent-color);">
+                            <small class="text-muted fw-bold text-uppercase">Active Sellers</small>
+                            <h2 class="display-6 fw-bold mb-0">842</h2>
+                            <p class="smallest text-muted mt-2 mb-0"><i class="bi bi-people"></i> 5 new today</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4 mb-5">
+                    <!-- Top Categories -->
+                    <div class="col-lg-6">
+                        <div class="bg-white rounded-4 shadow-sm p-4 h-100">
+                            <h5 class="fw-bold mb-4">Top Performing Categories</h5>
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="small fw-bold">Fiction</span>
+                                    <span class="small text-muted">45%</span>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-primary" style="width: 45%;"></div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="small fw-bold">Mystery</span>
+                                    <span class="small text-muted">28%</span>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-warning" style="width: 28%;"></div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="small fw-bold">Classic Literature</span>
+                                    <span class="small text-muted">15%</span>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-success" style="width: 15%;"></div>
+                                </div>
+                            </div>
+                            <div class="mb-0">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="small fw-bold">Others</span>
+                                    <span class="small text-muted">12%</span>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-secondary" style="width: 12%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- System Health / Quick Alerts -->
+                    <div class="col-lg-6">
+                        <div class="bg-white rounded-4 shadow-sm p-4 h-100">
+                            <h5 class="fw-bold mb-4">Critical Alerts</h5>
+                            <div class="alert alert-warning border-0 rounded-3 d-flex align-items-center mb-3">
+                                <i class="bi bi-exclamation-triangle-fill fs-4 me-3"></i>
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Database reaching 85% capacity</h6>
+                                    <p class="smallest mb-0">Consider upgrading storage soon.</p>
+                                </div>
+                            </div>
+                            <div class="alert alert-danger border-0 rounded-3 d-flex align-items-center mb-3">
+                                <i class="bi bi-shield-lock-fill fs-4 me-3"></i>
+                                <div>
+                                    <h6 class="mb-0 fw-bold">3 Failed Login Attempts</h6>
+                                    <p class="smallest mb-0">Suspicious activity detected on admin@litloom.com</p>
+                                </div>
+                            </div>
+                            <div class="alert alert-success border-0 rounded-3 d-flex align-items-center mb-0">
+                                <i class="bi bi-check-circle-fill fs-4 me-3"></i>
+                                <div>
+                                    <h6 class="mb-0 fw-bold">All backup systems operational</h6>
+                                    <p class="smallest mb-0">Last backup: 4 hours ago.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -125,6 +210,11 @@
                             <tbody>
                                 <tr><td>Shadow of the Wind</td><td>Carlos Zafón</td><td>$15.00</td><td>42</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
                                 <tr><td>The Alchemist</td><td>Paulo Coelho</td><td>$12.50</td><td>15</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
+                                <tr><td>Normal People</td><td>Sally Rooney</td><td>$10.20</td><td>28</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
+                                <tr><td>The Seven Husbands</td><td>Taylor Jenkins</td><td>$14.00</td><td>12</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
+                                <tr><td>A Little Life</td><td>Hanya Yanagihara</td><td>$22.00</td><td>5</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
+                                <tr><td>Educated</td><td>Tara Westover</td><td>$11.50</td><td>31</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
+                                <tr><td>Circe</td><td>Madeline Miller</td><td>$13.20</td><td>19</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -143,6 +233,9 @@
                             <tbody>
                                 <tr><td>John Doe</td><td>john@example.com</td><td><span class="badge bg-primary-subtle text-primary">Member</span></td><td>Jan 12, 2026</td><td><button class="btn btn-sm btn-outline-danger">Suspend</button></td></tr>
                                 <tr><td>Elena Rossi</td><td>elena@litloom.com</td><td><span class="badge bg-danger-subtle text-danger">Admin</span></td><td>Dec 05, 2025</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
+                                <tr><td>Jane Bibliophile</td><td>jane@user.com</td><td><span class="badge bg-success-subtle text-success">Seller</span></td><td>Feb 14, 2026</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
+                                <tr><td>Marcus Aurelius</td><td>stoic@example.com</td><td><span class="badge bg-primary-subtle text-primary">Member</span></td><td>Mar 01, 2026</td><td><button class="btn btn-sm btn-outline-danger">Suspend</button></td></tr>
+                                <tr><td>Sofia Lee</td><td>sofia@books.com</td><td><span class="badge bg-success-subtle text-success">Seller</span></td><td>Jan 28, 2026</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -161,6 +254,66 @@
                             <tbody>
                                 <tr><td>#98542</td><td>Marcus Aurelius</td><td>$145.20</td><td><span class="badge bg-success-subtle text-success">Paid</span></td></tr>
                                 <tr><td>#98541</td><td>Sophia Lee</td><td>$45.00</td><td><span class="badge bg-warning-subtle text-warning">Shipped</span></td></tr>
+                                <tr><td>#98540</td><td>David Chen</td><td>$12.50</td><td><span class="badge bg-info-subtle text-info">Returned</span></td></tr>
+                                <tr><td>#98539</td><td>Sarah Jenkins</td><td>$89.90</td><td><span class="badge bg-success-subtle text-success">Delivered</span></td></tr>
+                                <tr><td>#98538</td><td>Robert Brown</td><td>$32.10</td><td><span class="badge bg-danger-subtle text-danger">Cancelled</span></td></tr>
+                                <tr><td>#98537</td><td>Lucy Heart</td><td>$54.00</td><td><span class="badge bg-success-subtle text-success">Paid</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 💰 Section: Seller Payouts -->
+            <div id="payouts" class="dashboard-section" data-title="Seller Payouts" data-subtitle="Manage disbursements to the literary community.">
+                <div class="row g-4 mb-4">
+                    <div class="col-md-4">
+                        <div class="bg-primary text-white rounded-4 p-4 shadow-sm">
+                            <small class="opacity-75 text-uppercase fw-bold">Pending Payouts</small>
+                            <h3 class="fw-bold mb-0 mt-1">$2,450.00</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="bg-white rounded-4 p-4 shadow-sm border-start border-5 border-success">
+                            <small class="text-muted text-uppercase fw-bold">Processed Today</small>
+                            <h3 class="fw-bold mb-0 mt-1 text-success">$850.00</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="bg-white rounded-4 p-4 shadow-sm">
+                            <small class="text-muted text-uppercase fw-bold">Next Payout Cycle</small>
+                            <h3 class="fw-bold mb-0 mt-1">April 15</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-4 shadow-sm p-4">
+                    <div class="table-responsive">
+                        <table class="table align-middle">
+                            <thead class="table-light">
+                                <tr><th>Seller</th><th>Book Sold</th><th>Commission</th><th>Net Payout</th><th>Status</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>@bookworm22</td>
+                                    <td>The Great Gatsby</td>
+                                    <td>$2.55</td>
+                                    <td class="fw-bold">$14.45</td>
+                                    <td><span class="badge bg-warning-subtle text-warning small">Pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td>@classic_reads</td>
+                                    <td>1984 (Vintage)</td>
+                                    <td>$4.20</td>
+                                    <td class="fw-bold">$23.80</td>
+                                    <td><span class="badge bg-success-subtle text-success small">Processed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>@jane_biblio</td>
+                                    <td>Normal People</td>
+                                    <td>$1.80</td>
+                                    <td class="fw-bold">$10.20</td>
+                                    <td><span class="badge bg-warning-subtle text-warning small">Pending</span></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -171,18 +324,95 @@
             <div id="reports" class="dashboard-section" data-title="Analytics & Reports" data-subtitle="Data-driven insights for LitLoom growth.">
                 <!-- Title moved to topbar -->
                 <div class="row g-4">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="bg-white rounded-4 shadow-sm p-4 border-top border-4 border-primary">
                             <h5>Revenue Report</h5>
-                            <p class="text-muted">Monthly earnings overview and transaction breakdowns.</p>
+                            <p class="text-muted small">Monthly earnings overview and transaction breakdowns.</p>
                             <button class="btn btn-outline-primary rounded-pill btn-sm">Generate Report</button>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="bg-white rounded-4 shadow-sm p-4 border-top border-4 border-secondary">
                             <h5>Inventory Analytics</h5>
-                            <p class="text-muted">Stock levels, category trends, and top-selling genres.</p>
+                            <p class="text-muted small">Stock levels, category trends, and top-selling genres.</p>
                             <button class="btn btn-outline-secondary rounded-pill btn-sm">View Insights</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="bg-white rounded-4 shadow-sm p-4 border-top border-4 border-warning">
+                            <h5>Seller Performance</h5>
+                            <p class="text-muted small">Engagement metrics, top sellers, and payout history.</p>
+                            <button class="btn btn-outline-warning rounded-pill btn-sm">Audit Sellers</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 💬 Section: Messages & Support -->
+            <div id="messages" class="dashboard-section" data-title="Support Inbox" data-subtitle="Respond to community inquiries and technical tickets.">
+                <div class="bg-white rounded-4 shadow-sm overflow-hidden">
+                    <div class="row g-0" style="min-height: 500px;">
+                        <!-- Message List Sidebar -->
+                        <div class="col-md-4 border-end">
+                            <div class="p-3 bg-light-subtle border-bottom">
+                                <input type="text" class="form-control form-control-sm rounded-pill" placeholder="Search conversations...">
+                            </div>
+                            <div class="list-group list-group-flush overflow-y-auto" style="max-height: 450px;">
+                                <a href="#" class="list-group-item list-group-item-action active p-3">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1 fw-bold">Marcus Aurelius</h6>
+                                        <small>5m</small>
+                                    </div>
+                                    <p class="mb-1 small opacity-75">Regarding order #98542 shipping...</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action p-3">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1 fw-bold">Elena Rossi</h6>
+                                        <small>2h</small>
+                                    </div>
+                                    <p class="mb-1 small text-muted text-truncate">I'm having trouble with the seller...</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action p-3">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1 fw-bold">John Doe</h6>
+                                        <small>Yesterday</small>
+                                    </div>
+                                    <p class="mb-1 small text-muted text-truncate">Need to update my bank account details...</p>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Chat Window -->
+                        <div class="col-md-8 d-flex flex-column">
+                            <div class="p-3 border-bottom d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar-sm bg-primary rounded-circle text-white me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">MA</div>
+                                    <div>
+                                        <h6 class="mb-0 fw-bold">Marcus Aurelius</h6>
+                                        <small class="text-success"><i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i> Online</small>
+                                    </div>
+                                </div>
+                                <button class="btn btn-sm btn-outline-secondary rounded-circle"><i class="bi bi-three-dots-vertical"></i></button>
+                            </div>
+                            <div class="flex-grow-1 p-4 bg-light-subtle overflow-y-auto" style="height: 350px;">
+                                <div class="message-received mb-4">
+                                    <div class="p-3 bg-white rounded-4 shadow-sm d-inline-block" style="max-width: 80%;">
+                                        <p class="mb-0 small">Hello, I haven't received my order #98542 yet. Could you help me with a tracking update?</p>
+                                    </div>
+                                    <div class="smallest text-muted mt-1 ms-2">10:42 AM</div>
+                                </div>
+                                <div class="message-sent mb-4 text-end">
+                                    <div class="p-3 bg-primary text-white rounded-4 shadow-sm d-inline-block" style="max-width: 80%;">
+                                        <p class="mb-0 small">Hi Marcus! I'll check that for you right away. It looks like it was dispatched this morning.</p>
+                                    </div>
+                                    <div class="smallest text-muted mt-1 me-2">10:45 AM</div>
+                                </div>
+                            </div>
+                            <div class="p-3 border-top">
+                                <div class="input-group">
+                                    <input type="text" class="form-control rounded-pill-start border-end-0 px-4" placeholder="Type your response...">
+                                    <button class="btn btn-primary rounded-pill-end px-4"><i class="bi bi-send-fill"></i></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
