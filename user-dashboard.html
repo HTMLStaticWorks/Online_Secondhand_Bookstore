@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-light vh-100 overflow-hidden d-flex flex-column">
+<body class="bg-light vh-100 overflow-hidden d-flex flex-column dashboard-page">
     <!-- Mobile Dashboard Header -->
     <div class="mobile-dash-header flex-shrink-0">
         <a class="brand-identity" href="index.html">
@@ -59,8 +59,8 @@
                     <p class="text-muted small mb-0 d-none d-md-block">A quiet afternoon is better with a good book.</p>
                 </div>
                 <div class="d-none d-md-flex gap-2">
-                    <button id="theme-toggle" class="btn btn-outline-secondary rounded-circle"><i class="bi bi-moon"></i></button>
-                    <button id="rtl-toggle" class="btn btn-outline-secondary">RTL</button>
+                    <button id="theme-toggle" class="btn btn-sm btn-outline-secondary rounded-circle"><i class="bi bi-moon"></i></button>
+                    <button id="rtl-toggle" class="btn btn-sm btn-outline-secondary">RTL</button>
                 </div>
             </div>
 
@@ -97,9 +97,9 @@
                     <div class="col-lg-8">
                         <div class="bg-white rounded-4 shadow-sm p-4 h-100">
                             <h5 class="fw-bold mb-4">Currently Reading</h5>
-                            <div class="d-flex align-items-center mb-3">
-                                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=200" class="rounded me-4 shadow-sm" style="width: 80px; height: 110px; object-fit: cover;">
-                                <div class="flex-grow-1">
+                            <div class="d-flex flex-column flex-sm-row align-items-center align-items-sm-start mb-3 gap-3 gap-sm-0 text-center text-sm-start">
+                                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=200" class="rounded me-0 me-sm-4 shadow-sm" style="width: 100px; height: 140px; object-fit: cover;">
+                                <div class="flex-grow-1 w-100">
                                     <h6 class="fw-bold mb-1">The Secret History</h6>
                                     <p class="small text-muted mb-2">by Donna Tartt</p>
                                     <div class="progress" style="height: 8px;">
@@ -107,7 +107,7 @@
                                     </div>
                                     <p class="small text-muted mt-2 mb-0">65% complete • 120 pages left</p>
                                 </div>
-                                <div class="ms-3">
+                                <div class="ms-0 ms-sm-3 mt-2 mt-sm-0">
                                     <button class="btn btn-sm btn-outline-primary rounded-pill px-3">Update</button>
                                 </div>
                             </div>

@@ -34,46 +34,72 @@
             max-width: 800px;
         }
 
-        .collection-overlay-card {
-            position: relative;
-            height: 400px;
+        .collection-split-card {
+            background: var(--card-bg);
+            border-radius: 4px; /* Standardize with my bookstore refinement */
             overflow: hidden;
-            border-radius: 20px;
+            box-shadow: var(--soft-shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
-        .collection-overlay-card img {
+        .collection-split-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .collection-split-card .card-img-wrapper {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .collection-split-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: var(--transition);
         }
 
-        .collection-overlay-card:hover img {
+        .collection-split-card:hover img {
             transform: scale(1.1);
         }
 
-        .collection-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 50px 30px 30px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
-            color: white;
+        .collection-content {
+            padding: 30px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-image: url("https://www.transparenttextures.com/patterns/linen-paper.png"); /* Consistency */
+        }
+
+        .collection-content h3 {
+            color: var(--dark-text) !important;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .collection-content p {
+            color: var(--dark-text) !important;
+            opacity: 0.8;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .collection-content .explore-link {
+            color: var(--accent-color) !important;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
             transition: var(--transition);
         }
 
-        .collection-caption h3 {
-            color: #ffffff !important;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .collection-caption p {
-            color: rgba(255, 255, 255, 0.9) !important;
-            font-size: 1.1rem;
-            text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+        .collection-content .explore-link:hover {
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -88,19 +114,18 @@
                     <i class="bi bi-book-half"></i>LitLoom
                 </a>
                 
-                <div class="d-flex align-items-center gap-2 ms-auto header-actions-container">
+                <div class="d-flex align-items-center gap-2 ms-auto order-xl-3 header-actions-container">
                     <button id="theme-toggle" class="btn btn-sm btn-outline-secondary rounded-circle"><i class="bi bi-moon"></i></button>
                     <button id="rtl-toggle" class="btn btn-sm btn-outline-secondary">RTL</button>
                     <div class="d-none d-xl-flex gap-2 ms-2">
                         <a href="login.html" class="btn btn-login btn-sm">Login</a>
                     </div>
+                    <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                 </div>
 
-                <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="collapse navbar-collapse order-xl-2" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item"><a class="nav-link" href="index.html">Home 1</a></li>
                         <li class="nav-item"><a class="nav-link active" href="home2.html">Home 2</a></li>
@@ -118,7 +143,7 @@
                             </ul>
                         </li>
                     </ul>
-                    <div class="d-xl-none mt-4 border-top pt-4">
+                    <div class="d-xl-none mt-4 border-top pt-4 text-center">
                         <div class="d-grid gap-2">
                             <a href="login.html" class="btn btn-login btn-lg">Login</a>
                         </div>
@@ -148,33 +173,39 @@
             <h2 class="section-title text-center d-block mx-auto mb-5">Shop by Vibe</h2>
             <div class="row g-4 mt-2">
                 <div class="col-md-4">
-                    <div class="collection-overlay-card">
-                        <img src="https://images.pexels.com/photos/1122865/pexels-photo-1122865.jpeg" alt="Poetry">
-                        <div class="collection-caption">
+                    <div class="collection-split-card">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.pexels.com/photos/1122865/pexels-photo-1122865.jpeg" alt="Poetry">
+                        </div>
+                        <div class="collection-content">
                             <h3>The Poetry Corner</h3>
                             <p>Verses that linger long after the page is turned.</p>
-                            <a href="shop.html?tag=poetry" class="link-light text-decoration-none">Explore &rarr;</a>
+                            <a href="shop.html?tag=poetry" class="explore-link">Explore &rarr;</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="collection-overlay-card">
-                        <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800"
-                            alt="Mystery">
-                        <div class="collection-caption">
+                    <div class="collection-split-card">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800"
+                                alt="Mystery">
+                        </div>
+                        <div class="collection-content">
                             <h3>Nocturnal Mysteries</h3>
                             <p>Shadows and secrets waiting to be uncovered.</p>
-                            <a href="shop.html?tag=mystery" class="link-light text-decoration-none">Explore &rarr;</a>
+                            <a href="shop.html?tag=mystery" class="explore-link">Explore &rarr;</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="collection-overlay-card">
-                        <img src="https://images.pexels.com/photos/3747488/pexels-photo-3747488.jpeg" alt="Philosophy">
-                        <div class="collection-caption">
+                    <div class="collection-split-card">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.pexels.com/photos/3747488/pexels-photo-3747488.jpeg" alt="Philosophy">
+                        </div>
+                        <div class="collection-content">
                             <h3>The Ethics Shelf</h3>
                             <p>Big ideas from ancient minds to modern.</p>
-                            <a href="shop.html?tag=philosophy" class="link-light text-decoration-none">Explore
+                            <a href="shop.html?tag=philosophy" class="explore-link">Explore
                                 &rarr;</a>
                         </div>
                     </div>
@@ -239,15 +270,15 @@
         <div class="container">
             <h2 class="section-title text-center d-block mx-auto mb-5">Instagram Chronicles</h2>
             <div class="row g-2 mt-4">
-                <div class="col-md-3 col-6"><img
+                <div class="col-md-3 col-12"><img
                         src="https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=600"
                         class="img-fluid rounded shadow-sm insta-img" alt="Insta"></div>
-                <div class="col-md-3 col-6"><img
+                <div class="col-md-3 col-12"><img
                         src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600"
                         class="img-fluid rounded shadow-sm insta-img" alt="Insta"></div>
-                <div class="col-md-3 col-6"><img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600"
+                <div class="col-md-3 col-12"><img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600"
                         class="img-fluid rounded shadow-sm insta-img" alt="Insta"></div>
-                <div class="col-md-3 col-6"><img
+                <div class="col-md-3 col-12"><img
                         src="https://images.pexels.com/photos/1759350/pexels-photo-1759350.jpeg"
                         class="img-fluid rounded shadow-sm insta-img" alt="Insta"></div>
             </div>

@@ -1,10 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-    --primary-color: #5d4037;
-    --secondary-color: #8d6e63;
-    --accent-color: #cda434;
-    --bg-color: #f5f5dc;
+    /* Brand Constants */
+    --brand-primary: #5d4037;
+    --brand-primary-light: #d7ccc8;
+    --brand-secondary: #8d6e63;
+    --brand-accent: #cda434;
+    --brand-bg-light: #f5f5dc;
+    --brand-bg-dark: #1a0f0d;
+
+    /* Theme Variables - Default (Light) */
+    --primary-color: var(--brand-primary);
+    --secondary-color: var(--brand-secondary);
+    --accent-color: var(--brand-accent);
+    --bg-color: var(--brand-bg-light);
     --cream-color: #fffdd0;
     --dark-color: #3e2723;
     --light-text: #efebe9;
@@ -12,10 +21,10 @@
     --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     --soft-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     --glow-shadow: 0 0 15px rgba(205, 164, 52, 0.4);
-    --card-bg: #fff;
+    --card-bg: #ffffff;
     --hero-text: #2d1e1a;
     --hero-overlay: linear-gradient(to right, rgba(245, 245, 220, 0.85), rgba(245, 245, 220, 0.6));
-    --soft-primary: rgba(161, 136, 127, 0.1);
+    --soft-primary: rgba(93, 64, 55, 0.1);
     --soft-gold: rgba(205, 164, 52, 0.1);
     --soft-dark: rgba(0, 0, 0, 0.05);
     --footer-bg: #ffffff;
@@ -23,22 +32,52 @@
 }
 
 [data-theme="dark"] {
-    --bg-color: #1a0f0d;
+    /* Theme Variables - Dark Mode */
+    --bg-color: var(--brand-bg-dark);
     --cream-color: #2d1e1a;
     --dark-text: #efebe9;
-    --light-text: #2d1e1a;
+    --light-text: #1a0f0d;
     --card-bg: #2d1e1a;
-    --primary-color: #d7ccc8;
+    /* Maintain brand colors but opt for better legibility where needed */
+    --primary-color: #d7ccc8; /* Consistent light version of brand brown */
     --secondary-color: #a1887f;
-    --text-color: #efebe9; /* New variable for general text in dark mode */
+    --accent-color: var(--brand-accent); /* Maintain strict brand gold */
     --hero-text: #ffffff;
-    --hero-overlay: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));
+    --hero-overlay: linear-gradient(to right, rgba(26, 15, 13, 0.9), rgba(26, 15, 13, 0.7));
     --soft-primary: rgba(215, 204, 200, 0.15);
     --soft-gold: rgba(205, 164, 52, 0.2);
     --soft-dark: rgba(255, 255, 255, 0.1);
-    --footer-bg: #2d1e1a;
+    --footer-bg: #1a0f0d;
     --footer-text: #efebe9;
-    color-scheme: dark; /* Force native browser elements like dropdowns to dark theme */
+    color-scheme: dark;
+}
+
+/* Authentication Global Controls Positioning */
+.auth-global-controls {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 1200;
+    display: flex;
+    gap: 10px;
+}
+
+[data-theme="dark"] .auth-global-controls {
+    background: rgba(26, 18, 16, 0.5);
+    padding: 8px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+}
+
+@media (max-width: 767.98px) {
+    .auth-global-controls {
+        top: 15px !important;
+        right: 15px !important;
+    }
+}
+
+.text-nowrap {
+    white-space: nowrap !important;
 }
 
 [data-theme="dark"] label,
@@ -74,6 +113,15 @@
     border-color: rgba(255,255,255,0.05) !important;
 }
 
+/* Ensure Pending Payout card text is white in light mode */
+.bg-primary h1, .bg-primary h2, .bg-primary h3, .bg-primary h4, .bg-primary h5, .bg-primary h6, .bg-primary small, .bg-primary p {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .bg-primary h1, [data-theme="dark"] .bg-primary h2, [data-theme="dark"] .bg-primary h3, [data-theme="dark"] .bg-primary h4, [data-theme="dark"] .bg-primary h5, [data-theme="dark"] .bg-primary h6, [data-theme="dark"] .bg-primary small, [data-theme="dark"] .bg-primary p {
+    color: #2d1e1a !important;
+}
+
 [data-theme="dark"] .table {
     border-color: rgba(255,255,255,0.1) !important;
 }
@@ -89,12 +137,25 @@
 
 /* Dashboard Layout Refinement */
 .dashboard-topbar {
-    padding: 15px 0;
-    margin-bottom: 30px;
+    position: sticky;
+    top: -48px; /* Offset for desktop padding if needed, but we'll fix padding instead */
+    top: 0;
+    background: var(--bg-color);
+    padding: 20px 0;
+    margin-bottom: 40px;
     border-bottom: 1px solid rgba(0,0,0,0.05);
+    z-index: 100;
+    margin-top: -48px; /* Negative margin to account for main padding top */
+    padding-top: 48px;
+}
+
+/* Adjust dashboard main padding for sticky topbar */
+.dashboard-page main {
+    padding-top: 0 !important;
 }
 
 [data-theme="dark"] .dashboard-topbar {
+    background: var(--brand-bg-dark);
     border-bottom-color: rgba(255,255,255,0.05);
 }
 
@@ -152,9 +213,10 @@
 body {
     font-family: 'Outfit', sans-serif;
     background-color: var(--bg-color);
+    background-image: url("https://www.transparenttextures.com/patterns/linen-paper.png"); /* Subtle bookstore texture */
     color: var(--dark-text);
     overflow-x: hidden;
-    line-height: 1.6;
+    line-height: 1.7; /* Slightly more breathable for reading */
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
@@ -165,6 +227,7 @@ section {
 
 .bg-light {
     background-color: var(--cream-color) !important;
+    background-image: url("https://www.transparenttextures.com/patterns/linen-paper.png");
 }
 
 .bg-white {
@@ -178,20 +241,21 @@ section {
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--dark-text);
+    font-family: 'Playfair Display', serif; /* Elegant bookstore feel */
+    letter-spacing: -0.01em;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', sans-serif;
-    letter-spacing: -0.02em;
+h1, h2, h3 {
+    font-weight: 700;
 }
 
 /* 🎯 Global Brand Identity Standard - STRICT CONSISTENCY */
 .brand-identity {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'Playfair Display', serif !important;
     font-size: 1.8rem !important;
-    font-weight: 800 !important;
-    letter-spacing: -0.04em !important;
-    color: #5d4037 !important; /* Strict LitLoom Brown */
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+    color: var(--brand-primary) !important; /* Consistent Brand Brown */
     display: flex;
     align-items: center !important;
     gap: 12px !important;
@@ -200,41 +264,37 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-theme="dark"] .brand-identity {
-    color: #cda434 !important; /* Switch to Brand Gold in Dark Mode for high visibility */
-    text-shadow: 0 0 10px rgba(205, 164, 52, 0.2) !important;
+    color: var(--brand-primary-light) !important; /* Consistent Lightened Brand Brown for Dark Mode */
+    text-shadow: 0 0 10px rgba(215, 204, 200, 0.2) !important;
 }
 
 .brand-identity i {
     font-size: 2rem !important;
-    color: inherit !important; /* Inherit color from parent for easier synchronization */
-}
-
-/* Visibility Fix for Dark Mode without changing colors */
-[data-theme="dark"] .brand-identity {
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4), 0 0 8px rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="dark"] .brand-identity:hover {
-    color: #ffffff !important;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4) !important;
+    color: inherit !important;
 }
 
 .brand-identity:hover {
-    color: var(--accent-color) !important;
-    opacity: 1 !important;
-    transform: translateY(-1px);
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
 }
 
-/* Ensure match in Footer and all pages */
+[data-theme="dark"] .brand-identity:hover {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Maintain consistency in Footer and all pages */
 footer .brand-identity, .navbar-brand.brand-identity, .sidebar .brand-identity {
-    color: #5d4037 !important;
+    color: var(--brand-primary) !important;
 }
 
 [data-theme="dark"] footer .brand-identity, 
 [data-theme="dark"] .navbar-brand.brand-identity, 
 [data-theme="dark"] .sidebar .brand-identity {
-    color: #cda434 !important;
-    text-shadow: 0 0 10px rgba(205, 164, 52, 0.2) !important;
+    color: var(--brand-primary-light) !important;
 }
 /* Global brand identity is strictly controlled by .brand-identity class to ensure 100% consistency across themes and pages */
 
@@ -335,38 +395,40 @@ header.sticky {
 .btn-login {
     background-color: var(--primary-color);
     color: white !important;
-    padding: 10px 25px; /* Unified with signup */
-    border-radius: 50px;
-    border: 2px solid var(--primary-color); /* Added border for alignment */
+    padding: 10px 28px;
+    border-radius: 4px; /* Refined bookstore radius */
+    border: 2px solid var(--primary-color);
     font-weight: 600;
     box-shadow: var(--soft-shadow);
     transition: var(--transition);
+    font-family: 'Outfit', sans-serif;
 }
 
 .btn-login:hover {
-    transform: translateY(-3px) scale(1.05);
+    transform: translateY(-2px);
     background-color: var(--dark-color);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 
 [data-theme="dark"] .btn-login {
-    background-color: var(--accent-color);
-    color: var(--dark-color) !important;
+    background-color: var(--brand-primary-light) !important;
+    color: var(--brand-bg-dark) !important;
+    border-color: var(--brand-primary-light) !important;
 }
 
 [data-theme="dark"] .btn-login:hover {
-    background-color: #e5b32a;
-    color: var(--dark-color) !important;
+    background-color: #ffffff !important;
 }
 
 .btn-signup {
     background-color: transparent;
     color: var(--primary-color) !important;
     border: 2px solid var(--primary-color);
-    border-radius: 50px;
-    padding: 10px 25px;
+    border-radius: 4px; /* Unified radius */
+    padding: 10px 28px;
     font-weight: 600;
     transition: var(--transition);
+    font-family: 'Outfit', sans-serif;
 }
 
 .btn-signup:hover {
@@ -379,7 +441,7 @@ header.sticky {
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
     padding: 5px 15px;
-    border-radius: 50px;
+    border-radius: 4px; /* Unified radius */
     cursor: pointer;
     font-weight: 600;
     transition: var(--transition);
@@ -459,13 +521,13 @@ header.sticky {
 }
 
 .hero-title {
-    font-family: 'Outfit', sans-serif !important;
-    font-size: 4rem;
-    font-weight: 800;
+    font-family: 'Playfair Display', serif !important;
+    font-size: 4.5rem;
+    font-weight: 700;
     margin-bottom: 25px;
     color: var(--hero-text);
     line-height: 1.1;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.02em;
 }
 
 .hero-subtitle {
@@ -582,8 +644,8 @@ section {
     bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
+    width: 100px; /* Wider for elegance */
+    height: 2px; /* Thinner line */
     background: var(--accent-color);
 }
 
@@ -603,7 +665,7 @@ section {
 /* Cards */
 .book-card {
     background: var(--card-bg);
-    border-radius: 12px;
+    border-radius: 4px; /* Refined book-like radius */
     overflow: hidden;
     box-shadow: var(--soft-shadow);
     transition: var(--transition);
@@ -873,7 +935,7 @@ footer hr {
 .stats-card {
     background: var(--card-bg);
     padding: 30px;
-    border-radius: 15px;
+    border-radius: 8px; /* Professional refinement */
     box-shadow: var(--soft-shadow);
     border-left: 5px solid var(--accent-color);
     color: var(--dark-text);
@@ -953,7 +1015,7 @@ footer hr {
     border-color: var(--accent-color) !important;
     color: var(--dark-text) !important; /* Dark text on gold for visibility */
     transition: var(--transition) !important;
-    border-radius: 50px;
+    border-radius: 4px; /* Unified radius */
     font-weight: 700;
 }
 
@@ -1016,11 +1078,14 @@ footer hr {
 
 .sidebar {
     min-width: 280px;
-    min-height: 100vh;
+    height: 100vh;
     background: var(--card-bg);
     padding: 40px 20px;
     border-right: 1px solid rgba(0,0,0,0.05);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Allow sidebar links to scroll if menu is long on small screens */
 }
 
 [data-theme="dark"] .sidebar {
@@ -1031,13 +1096,17 @@ footer hr {
     display: flex;
     align-items: center;
     padding: 14px 20px;
-    margin-bottom: 10px;
-    border-radius: 15px;
+    margin-bottom: 5px;
+    border-radius: 4px; /* Unified radius */
     color: var(--dark-text) !important;
     text-decoration: none;
     font-weight: 500;
     transition: var(--transition);
     cursor: pointer;
+}
+
+.sidebar-link.text-danger, .sidebar-link.text-danger i {
+    color: #dc3545 !important;
 }
 
 .sidebar-link:hover {
@@ -1049,14 +1118,14 @@ footer hr {
 
 .sidebar-link.active {
     background-color: var(--accent-color) !important; /* Using Gold brand color as highlight */
-    color: #5d4037 !important; /* Brown text on gold background for legibility */
+    color: var(--brand-primary) !important; /* Consistent brown text on gold */
     box-shadow: 0 10px 20px rgba(205, 164, 52, 0.2);
     font-weight: 700;
 }
 
 [data-theme="dark"] .sidebar-link.active {
-    background-color: #cda434 !important;
-    color: #1a1210 !important;
+    background-color: var(--accent-color) !important;
+    color: var(--brand-bg-dark) !important;
 }
 
 .sidebar-link i {
@@ -1068,12 +1137,13 @@ footer hr {
 .mobile-dash-header {
     display: none;
     background: var(--bg-color);
+    background-image: url("https://www.transparenttextures.com/patterns/linen-paper.png");
     border-bottom: 1px solid rgba(0,0,0,0.05);
     padding: 1rem 1.5rem;
     position: sticky;
     top: 0;
-    z-index: 1040;
-    box-shadow: var(--soft-shadow);
+    z-index: 1050; /* Above everything else on mobile */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 @media (max-width: 991.98px) {
@@ -1090,7 +1160,7 @@ footer hr {
         bottom: 0;
         width: 280px;
         z-index: 1060 !important;
-        background: var(--bg-color);
+        background: #ffffff !important;
         transition: left 0.3s ease;
         padding-top: 60px !important;
         box-shadow: 10px 0 30px rgba(0,0,0,0.1);
@@ -1125,12 +1195,13 @@ footer hr {
     width: 45px !important;
     height: 45px !important;
     padding: 0 !important;
-    border: 2px solid var(--primary-color) !important;
+    border: 1px solid var(--primary-color) !important;
     color: var(--primary-color) !important;
     background: transparent !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     position: relative;
     overflow: hidden;
+    border-radius: 4px !important; /* Proper booklet radius */
 }
 
 #rtl-toggle {
@@ -1160,16 +1231,16 @@ footer hr {
     color: var(--bg-color) !important;
 }
 
-/* Login Button Dark Mode Visibility */
+/* Login Button Dark Mode Visibility - Simplified to use variables */
 [data-theme="dark"] .btn-login {
-    background-color: var(--accent-color) !important;
-    color: var(--dark-color) !important;
+    background-color: var(--brand-primary-light) !important;
+    color: var(--brand-bg-dark) !important;
     border: none !important;
     font-weight: 700 !important;
 }
 
 [data-theme="dark"] .btn-login:hover {
-    background-color: #e5b32a !important;
+    background-color: #ffffff !important;
     transform: translateY(-3px) scale(1.05) !important;
 }
 
@@ -1210,7 +1281,7 @@ footer hr {
 
 .btn-cta-gold {
     background-color: var(--accent-color) !important;
-    color: #2d1e1a !important; /* Force dark brown for high contrast */
+    color: var(--brand-primary) !important; /* Consistent brown text on gold */
     font-weight: 800 !important;
     letter-spacing: 0.1em !important;
     box-shadow: 0 4px 15px rgba(205, 164, 52, 0.4) !important;
@@ -1218,20 +1289,20 @@ footer hr {
 }
 
 .btn-cta-gold:hover {
-    background-color: #2d1e1a !important; /* Dark brown background on hover */
-    color: var(--accent-color) !important; /* Gold text on hover */
+    background-color: var(--brand-primary) !important;
+    color: var(--accent-color) !important;
     transform: translateY(-8px) scale(1.05) !important;
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3) !important;
 }
 
 [data-theme="dark"] .btn-cta-gold {
     background-color: var(--accent-color) !important;
-    color: #1a0f0d !important; /* Dark brown text for dark mode */
+    color: var(--brand-bg-dark) !important;
 }
 
 [data-theme="dark"] .btn-cta-gold:hover {
-    background-color: white !important;
-    color: #1a0f0d !important;
+    background-color: #ffffff !important;
+    color: var(--brand-bg-dark) !important;
     box-shadow: 0 12px 25px rgba(255, 255, 255, 0.2) !important;
 }
 
@@ -1403,18 +1474,27 @@ footer hr {
 
 [data-theme="dark"] .btn-primary,
 [data-theme="dark"] .btn-outline-primary,
-[data-theme="dark"] .btn-warning {
+[data-theme="dark"] .btn-warning,
+[data-theme="dark"] .bg-primary {
     background-color: var(--primary-color) !important;
     border-color: var(--primary-color) !important;
-    color: #2d1e1a !important; /* Force high-contrast dark brown text */
+    color: #2d1e1a !important; /* Dark brown text on beige */
     font-weight: 700 !important;
+}
+
+[data-theme="dark"] .bg-primary * {
+    color: #2d1e1a !important;
+}
+
+[data-theme="dark"] .bg-primary {
+    background-color: #d7ccc8 !important; /* Forced beige for consistency */
 }
 
 [data-theme="dark"] .btn-primary:hover,
 [data-theme="dark"] .btn-outline-primary:hover,
 [data-theme="dark"] .btn-warning:hover {
     background-color: #ffffff !important;
-    color: #2d1e1a !important;
+    color: var(--brand-bg-dark) !important;
     border-color: #ffffff !important;
     transform: translateY(-5px) !important;
 }
@@ -1425,7 +1505,7 @@ footer hr {
 }
 
 .page-link {
-    border-radius: 8px !important;
+    border-radius: 4px !important; /* Unified radius */
     border: 1px solid rgba(0,0,0,0.05) !important;
     background-color: var(--card-bg) !important;
     color: var(--dark-text) !important;
@@ -1682,17 +1762,33 @@ footer hr {
 [data-theme="dark"] .text-warning { color: #fff176 !important; }
 [data-theme="dark"] .text-danger { color: #ef9a9a !important; }
 [data-theme="dark"] .text-primary { color: var(--accent-color) !important; }
+[data-theme="dark"] .text-dark { color: #ffffff !important; }
 
-/* Force Badge Text Contrast */
-[data-theme="dark"] .badge.text-primary,
-[data-theme="dark"] .badge.text-success,
-[data-theme="dark"] .badge.text-info,
-[data-theme="dark"] .badge.text-warning,
-[data-theme="dark"] .badge.text-danger {
-    color: #ffffff !important; /* White text on subtle badges for dark mode for clarity */
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+/* Social Icons Dark Mode Visibility */
+[data-theme="dark"] .bi-apple { color: #ffffff !important; }
+[data-theme="dark"] .bi-facebook { color: #4267B2 !important; } 
+[data-theme="dark"] .bi-google { color: #EA4335 !important; }
+[data-theme="dark"] .btn-outline-secondary .bi-google, 
+[data-theme="dark"] .btn-outline-secondary .bi-facebook, 
+[data-theme="dark"] .btn-outline-secondary .bi-apple {
+    opacity: 0.9 !important;
 }
+
+/* Force Badge Status Color Visibility in Dark Mode */
+[data-theme="dark"] .badge.text-primary,
+[data-theme="dark"] .badge.bg-primary-subtle { color: var(--accent-color) !important; border: 1px solid rgba(205, 164, 52, 0.3) !important; background-color: rgba(205, 164, 52, 0.1) !important; }
+
+[data-theme="dark"] .badge.text-success,
+[data-theme="dark"] .badge.bg-success-subtle { color: #66bb6a !important; border: 1px solid rgba(102, 187, 106, 0.3) !important; background-color: rgba(102, 187, 106, 0.1) !important; }
+
+[data-theme="dark"] .badge.text-warning,
+[data-theme="dark"] .badge.bg-warning-subtle { color: #ffa726 !important; border: 1px solid rgba(255, 167, 38, 0.3) !important; background-color: rgba(255, 167, 38, 0.1) !important; }
+
+[data-theme="dark"] .badge.text-info,
+[data-theme="dark"] .badge.bg-info-subtle { color: #29b6f6 !important; border: 1px solid rgba(41, 182, 246, 0.3) !important; background-color: rgba(41, 182, 246, 0.1) !important; }
+
+[data-theme="dark"] .badge.text-danger,
+[data-theme="dark"] .badge.bg-danger-subtle { color: #ef5350 !important; border: 1px solid rgba(239, 83, 80, 0.3) !important; background-color: rgba(239, 83, 80, 0.1) !important; }
 
 /* Add to cart and general dashboard CTA buttons in dark mode visibility */
 [data-theme="dark"] .dashboard-section .btn-primary,
@@ -1709,9 +1805,17 @@ footer hr {
     opacity: 1 !important;
 }
 
+/* Force icons inside buttons to use the button's text color in dark mode */
+[data-theme="dark"] .btn i,
+[data-theme="dark"] .btn .bi {
+    color: inherit !important;
+}
+
 [data-theme="dark"] .table .btn-outline-danger {
-    background-color: #ef9a9a !important; /* Light red for danger buttons in dark mode text area */
+    background-color: #ef9a9a !important; /* Light red for danger buttons */
     border-color: #ef9a9a !important;
+    color: #2d1e1a !important; /* Dark text for contrast */
+    font-weight: 700 !important;
 }
 
 /* --- GLOBAL HIGH CONTRAST MUTED TEXT --- */
@@ -1758,9 +1862,45 @@ footer hr {
     box-shadow: 0 4px 10px rgba(205, 164, 52, 0.3);
 }
 
-[data-theme="dark"] .activity-icon {
-    background-color: rgba(255, 255, 255, 0.05) !important;
+[data-theme="dark"] .activity-icon,
+[data-theme="dark"] .bg-secondary-subtle,
+[data-theme="dark"] .bg-light-subtle {
+    background-color: rgba(255, 255, 255, 0.1) !important;
     color: var(--accent-color) !important;
+}
+
+[data-theme="dark"] .activity-icon i {
+    color: var(--accent-color) !important;
+}
+
+/* --- ALERT DARK MODE VISIBILITY --- */
+[data-theme="dark"] .alert {
+    background-color: #2d1e1a !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .alert-warning {
+    border-left: 4px solid #ffca28 !important;
+    color: #ffca28 !important;
+}
+[data-theme="dark"] .alert-warning h1, [data-theme="dark"] .alert-warning h2, [data-theme="dark"] .alert-warning h3, [data-theme="dark"] .alert-warning h4, [data-theme="dark"] .alert-warning h5, [data-theme="dark"] .alert-warning h6, [data-theme="dark"] .alert-warning p {
+    color: #ffca28 !important;
+}
+
+[data-theme="dark"] .alert-danger {
+    border-left: 4px solid #ef5350 !important;
+    color: #ef5350 !important;
+}
+[data-theme="dark"] .alert-danger h1, [data-theme="dark"] .alert-danger h2, [data-theme="dark"] .alert-danger h3, [data-theme="dark"] .alert-danger h4, [data-theme="dark"] .alert-danger h5, [data-theme="dark"] .alert-danger h6, [data-theme="dark"] .alert-danger p {
+    color: #ef5350 !important;
+}
+
+[data-theme="dark"] .alert-success {
+    border-left: 4px solid #66bb6a !important;
+    color: #66bb6a !important;
+}
+[data-theme="dark"] .alert-success h1, [data-theme="dark"] .alert-success h2, [data-theme="dark"] .alert-success h3, [data-theme="dark"] .alert-success h4, [data-theme="dark"] .alert-success h5, [data-theme="dark"] .alert-success h6, [data-theme="dark"] .alert-success p {
+    color: #66bb6a !important;
 }
 
 [data-theme="dark"] .activity-icon:hover {
@@ -1787,7 +1927,9 @@ footer hr {
 /* Fix generic Bootstrap secondary buttons in dark mode tables */
 [data-theme="dark"] .table .btn-outline-secondary {
     border-color: rgba(255, 255, 255, 0.3) !important;
-    color: #efebe9 !important;
+    background-color: var(--brand-primary-light) !important; /* Light beige background */
+    color: #2d1e1a !important; /* High contrast dark brown text */
+    font-weight: 700 !important;
 }
 
 [data-theme="dark"] .table .btn-outline-secondary:hover {

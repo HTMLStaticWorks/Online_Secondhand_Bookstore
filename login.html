@@ -32,8 +32,8 @@
     </style>
 </head>
 <body class="bg-light">
-    <!-- Top-Right Global Controls -->
-    <div class="position-fixed top-0 end-0 p-4 d-flex gap-2" style="z-index: 1000;">
+    <!-- Global Controls -->
+    <div class="auth-global-controls d-flex gap-2">
         <button id="theme-toggle-auth" class="btn btn-sm btn-outline-secondary rounded-circle"><i class="bi bi-moon"></i></button>
         <button id="rtl-toggle-auth" class="btn btn-sm btn-outline-secondary">RTL</button>
     </div>
@@ -63,13 +63,13 @@
                     <input type="password" class="form-control form-control-lg bg-light border-0 px-4 mb-0" id="password" placeholder="••••••••" required>
                     <i class="bi bi-eye password-toggle-icon" id="togglePassword"></i>
                 </div>
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <div class="form-check mb-0">
-                        <input type="checkbox" class="form-check-input" id="rememberMe">
-                        <label class="form-check-label small text-muted" for="rememberMe">Remember me</label>
+                    <div class="d-flex justify-content-between align-items-center mt-3 gap-2">
+                        <div class="form-check mb-0">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label small text-muted text-nowrap" for="rememberMe">Remember me</label>
+                        </div>
+                        <a href="#" class="small text-decoration-none text-nowrap">Forgot Password?</a>
                     </div>
-                    <a href="#" class="small text-decoration-none">Forgot Password?</a>
-                </div>
             </div>
             <div class="d-grid mb-5">
                 <button type="submit" class="btn btn-primary btn-lg py-3 rounded-pill fw-bold shadow-sm">Sign In</button>
@@ -91,7 +91,7 @@
 
         <!-- New User CTA -->
         <div class="text-center">
-            <p class="text-muted mb-0">Don't have an account? <a href="signup.html" class="fw-bold text-primary">Join the Library</a></p>
+            <p class="text-muted mb-0">Don't have an account? <a href="signup.html" class="fw-bold text-primary text-nowrap">Join the Library</a></p>
         </div>
 
     </div>
