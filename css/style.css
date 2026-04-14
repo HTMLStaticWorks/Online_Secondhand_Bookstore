@@ -118,8 +118,17 @@
     color: #ffffff !important;
 }
 
-[data-theme="dark"] .bg-primary h1, [data-theme="dark"] .bg-primary h2, [data-theme="dark"] .bg-primary h3, [data-theme="dark"] .bg-primary h4, [data-theme="dark"] .bg-primary h5, [data-theme="dark"] .bg-primary h6, [data-theme="dark"] .bg-primary small, [data-theme="dark"] .bg-primary p {
-    color: #2d1e1a !important;
+/* High contrast text for dark backgrounds - applied selectively */
+[data-theme="dark"] .bg-primary.card-hover h1, 
+[data-theme="dark"] .bg-primary.card-hover h2, 
+[data-theme="dark"] .bg-primary.card-hover h3, 
+[data-theme="dark"] .bg-primary.card-hover h4, 
+[data-theme="dark"] .bg-primary.card-hover h5, 
+[data-theme="dark"] .bg-primary.card-hover h6, 
+[data-theme="dark"] .bg-primary.card-hover p, 
+[data-theme="dark"] .bg-primary.card-hover li, 
+[data-theme="dark"] .bg-primary.card-hover i {
+    color: #ffffff !important;
 }
 
 [data-theme="dark"] .table {
@@ -138,20 +147,57 @@
 /* Dashboard Layout Refinement */
 .dashboard-topbar {
     position: sticky;
-    top: -48px; /* Offset for desktop padding if needed, but we'll fix padding instead */
     top: 0;
     background: var(--bg-color);
-    padding: 20px 0;
+    padding: 20px 2rem; /* Consistent horizontal padding */
     margin-bottom: 40px;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     z-index: 100;
     margin-top: -48px; /* Negative margin to account for main padding top */
-    padding-top: 48px;
+    padding-top: 68px; /* 48px offset + 20px base padding */
 }
 
-/* Adjust dashboard main padding for sticky topbar */
+@media (min-width: 992px) {
+    .dashboard-topbar {
+        padding-left: 4.5rem; /* Matches p-lg-5 content alignment */
+        padding-right: 4.5rem;
+    }
+}
+
+/* Adjust dashboard main padding for full width spans */
 .dashboard-page main {
-    padding-top: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-section {
+    padding: 2.5rem 2rem 5rem 2rem !important; /* Internal padding including top breathing space */
+    width: 100%;
+}
+
+@media (min-width: 992px) {
+    .dashboard-section {
+        padding-top: 3.5rem !important;
+        padding-left: 4.5rem !important;
+        padding-right: 4.5rem !important;
+    }
+}
+
+.dashboard-section .row {
+    --bs-gutter-x: 2rem !important; /* Mobile gutter */
+    --bs-gutter-y: 2rem !important;
+    margin-bottom: 2rem !important;
+}
+
+@media (min-width: 992px) {
+    .dashboard-section .row {
+        --bs-gutter-x: 3.5rem !important; /* Desktop gutter - significant breathing space */
+        --bs-gutter-y: 3.5rem !important;
+        margin-bottom: 3.5rem !important;
+    }
 }
 
 [data-theme="dark"] .dashboard-topbar {
@@ -434,6 +480,24 @@ header.sticky {
 .btn-signup:hover {
     background-color: var(--primary-color);
     color: white !important;
+}
+
+/* Mobile Toggle Menu Items (inside hamburger/sidebar) */
+.navbar-nav .nav-item .bg-light-subtle,
+.sidebar .bg-white.bg-opacity-10 {
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+[data-theme="dark"] .navbar-nav .nav-item .bg-light-subtle,
+[data-theme="dark"] .sidebar .bg-white.bg-opacity-10 {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Header Action Transitions */
+.header-actions-container .btn {
+    transition: var(--transition);
 }
 
 #theme-toggle, #rtl-toggle {
@@ -947,6 +1011,15 @@ footer hr {
     background: var(--card-bg) !important;
 }
 
+[data-theme="dark"] .card-hover:not(.bg-primary) {
+    background: #3e2723 !important; /* Lighter chocolate for contrast */
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .bg-primary.card-hover {
+    background: var(--brand-primary) !important; /* Keep original brown for center card */
+}
+
 .card:not(.book-card) {
     background: var(--card-bg);
     color: var(--dark-text);
@@ -1160,7 +1233,7 @@ footer hr {
         bottom: 0;
         width: 280px;
         z-index: 1060 !important;
-        background: #ffffff !important;
+        background: var(--card-bg) !important;
         transition: left 0.3s ease;
         padding-top: 60px !important;
         box-shadow: 10px 0 30px rgba(0,0,0,0.1);
@@ -1474,11 +1547,17 @@ footer hr {
 
 [data-theme="dark"] .btn-primary,
 [data-theme="dark"] .btn-outline-primary,
-[data-theme="dark"] .btn-warning,
 [data-theme="dark"] .bg-primary {
     background-color: var(--primary-color) !important;
     border-color: var(--primary-color) !important;
     color: #2d1e1a !important; /* Dark brown text on beige */
+    font-weight: 700 !important;
+}
+
+[data-theme="dark"] .btn-warning {
+    background-color: var(--accent-color) !important; /* Force Golden color for visibility */
+    border-color: var(--accent-color) !important;
+    color: #2d1e1a !important;
     font-weight: 700 !important;
 }
 
@@ -1649,8 +1728,8 @@ footer hr {
 }
 
 [data-theme="dark"] .feature-card {
-    background-color: #2d1e1a !important;
-    border-color: rgba(255, 255, 255, 0.05) !important;
+    background-color: #3e2723 !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* --- ACCORDION DARK MODE VISIBILITY FIXES --- */
@@ -2206,33 +2285,17 @@ footer hr {
 
 /* --- MOBILE CARD TABLE ENHANCEMENTS --- */
 @media (max-width: 768px) {
-    .dashboard-section table thead {
-        border-bottom: 2px solid rgba(93, 64, 55, 0.15) !important; /* Thinner, more subtle header line */
-        display: block !important;
-        margin-bottom: 15px !important;
-        padding-bottom: 15px !important;
+    /* Maintain table structure for alignment, use table-responsive for horizontal scroll */
+    .dashboard-section .table-responsive {
+        border: none !important;
+    }
+    
+    .dashboard-section table thead th {
+        white-space: nowrap;
     }
 
-    .dashboard-section table tbody tr {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important; /* Slightly more defined thin divider */
-        display: block !important;
-        padding-bottom: 22px !important;
-        margin-bottom: 22px !important;
-    }
-
-    [data-theme="dark"] .dashboard-section table thead {
-        border-bottom-color: rgba(255, 255, 255, 0.25) !important;
-    }
-
-    [data-theme="dark"] .dashboard-section table tbody tr {
-        border-bottom-color: rgba(255, 255, 255, 0.12) !important;
-    }
-
-    /* Remove border from last row to keep it clean */
-    .dashboard-section table tbody tr:last-child {
-        border-bottom: none !important;
-        margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
+    .dashboard-section table tbody td {
+        white-space: nowrap;
     }
 
     /* Fix misaligned icons (e.g., delete trash) horizontally in mobile rows */

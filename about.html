@@ -29,11 +29,13 @@
                 </a>
                 
                 <div class="d-flex align-items-center gap-2 ms-auto order-xl-3 header-actions-container">
-                    <button id="theme-toggle" class="btn btn-sm btn-outline-secondary rounded-circle"><i class="bi bi-moon"></i></button>
-                    <button id="rtl-toggle" class="btn btn-sm btn-outline-secondary">RTL</button>
-                    <div class="d-none d-xl-flex gap-2 ms-2">
-                        <a href="login.html" class="btn btn-login btn-sm">Login</a>
+                    <!-- Desktop Actions -->
+                    <div class="d-none d-xl-flex gap-2">
+                        <button id="theme-toggle" class="btn btn-sm btn-outline-secondary rounded-circle"><i class="bi bi-moon"></i></button>
+                        <button id="rtl-toggle" class="btn btn-sm btn-outline-secondary">RTL</button>
+                        <a href="login.html" class="btn btn-login btn-sm ms-2">Login</a>
                     </div>
+                    <!-- Mobile Hamburger Toggler -->
                     <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -57,7 +59,15 @@
                             </ul>
                         </li>
                     </ul>
-                    <div class="d-xl-none mt-4 border-top pt-4 text-center">
+                    <div class="d-xl-none mt-4 border-top pt-4">
+                        <div class="d-flex align-items-center justify-content-center gap-4 px-3 py-3 bg-light-subtle rounded-4 mb-4">
+                            <button id="theme-toggle-mobile" class="btn btn-outline-secondary rounded-circle">
+                                <i class="bi bi-moon"></i>
+                            </button>
+                            <button id="rtl-toggle-mobile" class="btn btn-outline-secondary px-3">
+                                RTL
+                            </button>
+                        </div>
                         <div class="d-grid gap-2">
                             <a href="login.html" class="btn btn-login btn-lg">Login</a>
                         </div>

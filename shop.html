@@ -25,13 +25,15 @@
                 </a>
 
                 <div class="d-flex align-items-center gap-2 ms-auto order-xl-3 header-actions-container">
-                    <button id="theme-toggle" class="btn btn-sm btn-outline-secondary rounded-circle"><i
-                            class="bi bi-moon"></i></button>
-                    <button id="rtl-toggle" class="btn btn-sm btn-outline-secondary">RTL</button>
-                    <div class="d-none d-xl-flex gap-2 ms-2">
-                        <a href="login.html" class="btn btn-login btn-sm">Login</a>
+                    <!-- Desktop Actions -->
+                    <div class="d-none d-xl-flex gap-2">
+                        <button id="theme-toggle" class="btn btn-sm btn-outline-secondary rounded-circle"><i class="bi bi-moon"></i></button>
+                        <button id="rtl-toggle" class="btn btn-sm btn-outline-secondary">RTL</button>
+                        <a href="login.html" class="btn btn-login btn-sm ms-2">Login</a>
                     </div>
-                    <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <!-- Mobile Hamburger Toggler -->
+                    <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
@@ -59,7 +61,15 @@
                             </ul>
                         </li>
                     </ul>
-                    <div class="d-xl-none mt-4 border-top pt-4 text-center">
+                    <div class="d-xl-none mt-4 border-top pt-4">
+                        <div class="d-flex align-items-center justify-content-center gap-4 px-3 py-3 bg-light-subtle rounded-4 mb-4">
+                            <button id="theme-toggle-mobile" class="btn btn-outline-secondary rounded-circle">
+                                <i class="bi bi-moon"></i>
+                            </button>
+                            <button id="rtl-toggle-mobile" class="btn btn-outline-secondary px-3">
+                                RTL
+                            </button>
+                        </div>
                         <div class="d-grid gap-2">
                             <a href="login.html" class="btn btn-login btn-lg">Login</a>
                         </div>
@@ -141,7 +151,7 @@
             <div class="row g-4">
                 <!-- Book Cards - Loop these for real data -->
                 <!-- Card 1 -->
-                <div class="col-6 col-md-6 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3">
                     <div class="book-card h-100">
                         <div class="book-img-wrapper position-relative">
                             <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800"
@@ -162,7 +172,7 @@
                     </div>
                 </div>
                 <!-- Repeat cards for layout variety -->
-                <div class="col-6 col-md-6 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3">
                     <div class="book-card h-100">
                         <img src="https://images.unsplash.com/photo-1592492159418-39f319320569?q=80&w=800"
                             class="book-img" alt="Book" style="height: 350px; object-fit: cover;">
@@ -176,7 +186,7 @@
                     </div>
                 </div>
                 <!-- Card 3 -->
-                <div class="col-6 col-md-6 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3">
                     <div class="book-card h-100">
                         <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=800"
                             class="book-img" alt="Book" style="height: 350px; object-fit: cover;">
@@ -190,7 +200,7 @@
                     </div>
                 </div>
                 <!-- ... additional books fill original grid for premium feel -->
-                <div class="col-6 col-md-6 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3">
                     <div class="book-card h-100">
                         <img src="https://images.unsplash.com/photo-1476275466078-4007374efbbe?q=80&w=800"
                             class="book-img" alt="Book" style="height: 350px; object-fit: cover;">

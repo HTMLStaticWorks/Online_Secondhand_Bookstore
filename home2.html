@@ -115,11 +115,13 @@
                 </a>
                 
                 <div class="d-flex align-items-center gap-2 ms-auto order-xl-3 header-actions-container">
-                    <button id="theme-toggle" class="btn btn-sm btn-outline-secondary rounded-circle"><i class="bi bi-moon"></i></button>
-                    <button id="rtl-toggle" class="btn btn-sm btn-outline-secondary">RTL</button>
-                    <div class="d-none d-xl-flex gap-2 ms-2">
-                        <a href="login.html" class="btn btn-login btn-sm">Login</a>
+                    <!-- Desktop Actions -->
+                    <div class="d-none d-xl-flex gap-2">
+                        <button id="theme-toggle" class="btn btn-sm btn-outline-secondary rounded-circle"><i class="bi bi-moon"></i></button>
+                        <button id="rtl-toggle" class="btn btn-sm btn-outline-secondary">RTL</button>
+                        <a href="login.html" class="btn btn-login btn-sm ms-2">Login</a>
                     </div>
+                    <!-- Mobile Hamburger Toggler -->
                     <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -143,7 +145,15 @@
                             </ul>
                         </li>
                     </ul>
-                    <div class="d-xl-none mt-4 border-top pt-4 text-center">
+                    <div class="d-xl-none mt-4 border-top pt-4">
+                        <div class="d-flex align-items-center justify-content-center gap-4 px-3 py-3 bg-light-subtle rounded-4 mb-4">
+                            <button id="theme-toggle-mobile" class="btn btn-outline-secondary rounded-circle">
+                                <i class="bi bi-moon"></i>
+                            </button>
+                            <button id="rtl-toggle-mobile" class="btn btn-outline-secondary px-3">
+                                RTL
+                            </button>
+                        </div>
                         <div class="d-grid gap-2">
                             <a href="login.html" class="btn btn-login btn-lg">Login</a>
                         </div>
@@ -171,8 +181,8 @@
     <section id="collections" class="reveal reveal-up">
         <div class="container">
             <h2 class="section-title text-center d-block mx-auto mb-5">Shop by Vibe</h2>
-            <div class="row g-4 mt-2">
-                <div class="col-md-4">
+            <div class="row g-4 mt-2 justify-content-center">
+                <div class="col-md-6 col-lg-4">
                     <div class="collection-split-card">
                         <div class="card-img-wrapper">
                             <img src="https://images.pexels.com/photos/1122865/pexels-photo-1122865.jpeg" alt="Poetry">
@@ -184,7 +194,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="collection-split-card">
                         <div class="card-img-wrapper">
                             <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800"
@@ -197,7 +207,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="collection-split-card">
                         <div class="card-img-wrapper">
                             <img src="https://images.pexels.com/photos/3747488/pexels-photo-3747488.jpeg" alt="Philosophy">
@@ -218,22 +228,33 @@
     <section class="reveal reveal-right spotlight-section" style="background-color: var(--primary-color);">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-5 mb-4 mb-md-0">
-                    <div class="p-3 bg-white shadow-lg rounded" style="transform: rotate(-3deg);">
+                <!-- Mobile Heading -->
+                <div class="col-12 d-md-none text-center mb-4">
+                    <span class="text-warning mb-2 d-block fw-bold">MARCH SPOTLIGHT</span>
+                    <h2 class="display-6 mb-0 text-white">Echoes of the Silk Road</h2>
+                </div>
+
+                <div class="col-md-5 mb-4 mb-md-0 text-center text-md-start">
+                    <div class="p-3 bg-white shadow-lg rounded" style="transform: rotate(-3deg); display: inline-block;">
                         <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800"
                             class="img-fluid" alt="Spotlight Book">
                     </div>
                 </div>
-                <div class="col-md-7 ps-lg-5">
-                    <span class="text-warning mb-2 d-block fw-bold">MARCH SPOTLIGHT</span>
-                    <h2 class="display-5 mb-4">Echoes of the Silk Road</h2>
-                    <p class="lead mb-4">A mesmerizing journey through time and geography. This rare secondhand copy
-                        includes handwritten notes from its original 1920s owner.</p>
-                    <div class="mb-5">
-                        <p class="mb-1 fw-bold">Condition: Very Good (Aged Paper)</p>
-                        <p class="mb-0">"The best travelogue of its generation." - NY Times (1922)</p>
+                
+                <div class="col-md-7 ps-lg-5 text-center text-md-start">
+                    <!-- Desktop Heading -->
+                    <div class="d-none d-md-block">
+                        <span class="text-warning mb-2 d-block fw-bold">MARCH SPOTLIGHT</span>
+                        <h2 class="display-5 mb-4 text-white">Echoes of the Silk Road</h2>
                     </div>
-                    <div class="d-flex align-items-center gap-4">
+
+                    <p class="lead mb-4 text-white opacity-75">A mesmerizing journey through time and geography. This rare secondhand copy
+                        includes handwritten notes from its original 1920s owner.</p>
+                    <div class="mb-5 text-white">
+                        <p class="mb-1 fw-bold">Condition: Very Good (Aged Paper)</p>
+                        <p class="mb-0 opacity-75">"The best travelogue of its generation." - NY Times (1922)</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-4">
                         <h3 class="mb-0 text-warning fs-1">$45.00</h3>
                         <a href="book-details.html" class="btn btn-warning px-5 py-3 fw-bold">Get This Copy</a>
                     </div>
@@ -270,15 +291,15 @@
         <div class="container">
             <h2 class="section-title text-center d-block mx-auto mb-5">Instagram Chronicles</h2>
             <div class="row g-2 mt-4">
-                <div class="col-md-3 col-12"><img
+                <div class="col-md-6 col-lg-3 col-12"><img
                         src="https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=600"
                         class="img-fluid rounded shadow-sm insta-img" alt="Insta"></div>
-                <div class="col-md-3 col-12"><img
+                <div class="col-md-6 col-lg-3 col-12"><img
                         src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600"
                         class="img-fluid rounded shadow-sm insta-img" alt="Insta"></div>
-                <div class="col-md-3 col-12"><img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600"
+                <div class="col-md-6 col-lg-3 col-12"><img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600"
                         class="img-fluid rounded shadow-sm insta-img" alt="Insta"></div>
-                <div class="col-md-3 col-12"><img
+                <div class="col-md-6 col-lg-3 col-12"><img
                         src="https://images.pexels.com/photos/1759350/pexels-photo-1759350.jpeg"
                         class="img-fluid rounded shadow-sm insta-img" alt="Insta"></div>
             </div>

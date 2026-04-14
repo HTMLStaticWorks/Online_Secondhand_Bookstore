@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link rel="apple-touch-icon" href="assets/images/favicon.png">
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="bg-light vh-100 overflow-hidden d-flex flex-column dashboard-page">
     <!-- Mobile Dashboard Header -->
     <div class="mobile-dash-header flex-shrink-0">
@@ -19,8 +21,7 @@
             <i class="bi bi-book-half"></i>LitLoom
         </a>
         <div class="d-flex align-items-center gap-2">
-            <button id="theme-toggle-mobile" class="btn btn-sm btn-outline-secondary rounded-circle"><i class="bi bi-moon"></i></button>
-            <button id="rtl-toggle-mobile" class="btn btn-sm btn-outline-secondary">RTL</button>
+            <!-- Mobile Sidebar Toggler ONLY -->
             <button id="mobile-sidebar-toggler" class="btn btn-sm btn-outline-secondary">
                 <i class="bi bi-list fs-4"></i>
             </button>
@@ -33,63 +34,81 @@
     <div class="d-flex flex-grow-1 overflow-hidden">
         <!-- Sidebar -->
         <div class="sidebar d-lg-block shadow-sm">
-             <div class="mb-5 px-2">
-                  <a class="navbar-brand brand-identity" href="index.html">
-                     <i class="bi bi-book-half"></i>LitLoom
-                  </a>
-                  <small class="text-white-50 ms-4 ps-2 border-start border-opacity-25 mt-1 d-block" style="font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase;">Admin Control</small>
-             </div>
-             <a class="sidebar-link active" data-target="dashboard"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
-             <a class="sidebar-link" data-target="books"><i class="bi bi-book me-2"></i> Manage Books</a>
-             <a class="sidebar-link" data-target="users"><i class="bi bi-people me-2"></i> User Base</a>
-             <a class="sidebar-link" data-target="orders"><i class="bi bi-cart me-2"></i> Global Orders</a>
-             <a class="sidebar-link" data-target="payouts"><i class="bi bi-cash-stack me-2"></i> Seller Payouts</a>
-             <a class="sidebar-link" data-target="messages"><i class="bi bi-chat-dots me-2"></i> Support <span class="badge bg-danger ms-2" style="font-size: 0.6rem;">3</span></a>
-             <a class="sidebar-link" data-target="reports"><i class="bi bi-bar-chart me-2"></i> Reports</a>
-             <a class="sidebar-link" data-target="settings"><i class="bi bi-gear me-2"></i> Settings</a>
-             <hr class="opacity-25 my-4">
-             <div class="px-2 mt-auto d-flex flex-column gap-2">
-                <a href="index.html" class="sidebar-link text-danger mt-2"><i class="bi bi-box-arrow-right me-2"></i> Logout</a>
-             </div>
+            <div class="mb-5 px-2">
+                <a class="navbar-brand brand-identity" href="index.html">
+                    <i class="bi bi-book-half"></i>LitLoom
+                </a>
+                <small class="text-white-50 ms-4 ps-2 border-start border-opacity-25 mt-1 d-block"
+                    style="font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase;">Admin Control</small>
+            </div>
+            <a class="sidebar-link active" data-target="dashboard"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
+            <a class="sidebar-link" data-target="books"><i class="bi bi-book me-2"></i> Manage Books</a>
+            <a class="sidebar-link" data-target="users"><i class="bi bi-people me-2"></i> User Base</a>
+            <a class="sidebar-link" data-target="orders"><i class="bi bi-cart me-2"></i> Global Orders</a>
+            <a class="sidebar-link" data-target="payouts"><i class="bi bi-cash-stack me-2"></i> Seller Payouts</a>
+            <a class="sidebar-link" data-target="messages"><i class="bi bi-chat-dots me-2"></i> Support <span
+                    class="badge bg-danger ms-2" style="font-size: 0.6rem;">3</span></a>
+            <a class="sidebar-link" data-target="reports"><i class="bi bi-bar-chart me-2"></i> Reports</a>
+            <a class="sidebar-link" data-target="settings"><i class="bi bi-gear me-2"></i> Settings</a>
+            <hr class="opacity-25 my-4">
+            <div class="px-2 mt-auto d-flex flex-column gap-2">
+                <hr class="opacity-25 my-2 d-lg-none">
+                <div class="d-lg-none px-2 mb-3">
+                    <div
+                        class="d-flex align-items-center justify-content-center gap-4 px-3 py-3 rounded-4" style="background: var(--soft-primary);">
+                        <button id="theme-toggle-sidebar" class="btn btn-outline-primary rounded-circle"><i
+                                class="bi bi-moon"></i></button>
+                        <button id="rtl-toggle-sidebar" class="btn btn-outline-primary px-3">RTL</button>
+                    </div>
+                </div>
+                <a href="index.html" class="sidebar-link text-danger mt-2"><i class="bi bi-box-arrow-right me-2"></i>
+                    Logout</a>
+            </div>
         </div>
 
         <!-- Main Content Area -->
-        <main class="flex-grow-1 p-4 p-lg-5 overflow-y-auto">
+        <main class="flex-grow-1 overflow-y-auto">
             <!-- 🏁 Top Right Controls -->
             <div class="dashboard-topbar d-flex align-items-center justify-content-between mb-5">
                 <div id="dashboard-title-area">
                     <h1 class="h3 fw-bold mb-0">Admin Overview</h1>
-                    <p class="text-muted small mb-0 d-none d-md-block">System-wide performance and activity monitors.</p>
+                    <p class="text-muted small mb-0 d-none d-md-block">System-wide performance and activity monitors.
+                    </p>
                 </div>
-                <div class="d-none d-md-flex gap-2">
-                    <button id="theme-toggle" class="btn btn-sm btn-outline-secondary rounded-circle"><i class="bi bi-moon"></i></button>
+                <div class="d-none d-lg-flex gap-2">
+                    <button id="theme-toggle" class="btn btn-sm btn-outline-secondary rounded-circle"><i
+                            class="bi bi-moon"></i></button>
                     <button id="rtl-toggle" class="btn btn-sm btn-outline-secondary">RTL</button>
                 </div>
             </div>
 
             <!-- 🖥️ Section: Dashboard (Overview) -->
-            <div id="dashboard" class="dashboard-section active" data-title="Admin Overview" data-subtitle="System-wide performance and activity monitors.">
+            <div id="dashboard" class="dashboard-section active" data-title="Admin Overview"
+                data-subtitle="System-wide performance and activity monitors.">
                 <!-- Title moved to topbar -->
                 <div class="row g-4 mb-5">
                     <div class="col-6 col-md-3">
                         <div class="stats-card h-100" style="border-left-color: var(--accent-color);">
                             <small class="text-muted fw-bold text-uppercase">New Orders</small>
                             <h2 class="display-6 fw-bold mb-0 text-warning">142</h2>
-                            <p class="smallest text-muted mt-2 mb-0"><i class="bi bi-arrow-up text-success"></i> +12% from yesterday</p>
+                            <p class="smallest text-muted mt-2 mb-0"><i class="bi bi-arrow-up text-success"></i> +12%
+                                from yesterday</p>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
                         <div class="stats-card h-100" style="border-left-color: var(--primary-color);">
                             <small class="text-muted fw-bold text-uppercase">Total Revenue</small>
                             <h2 class="display-6 fw-bold mb-0">$12.4k</h2>
-                            <p class="smallest text-muted mt-2 mb-0"><i class="bi bi-arrow-up text-success"></i> +8% this month</p>
+                            <p class="smallest text-muted mt-2 mb-0"><i class="bi bi-arrow-up text-success"></i> +8%
+                                this month</p>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
                         <div class="stats-card h-100" style="border-left-color: var(--secondary-color);">
                             <small class="text-muted fw-bold text-uppercase">Pending Appraisals</small>
                             <h2 class="display-6 fw-bold mb-0">24</h2>
-                            <p class="smallest text-muted mt-2 mb-0 text-danger"><i class="bi bi-exclamation-circle"></i> Requires action</p>
+                            <p class="smallest text-muted mt-2 mb-0 text-danger"><i
+                                    class="bi bi-exclamation-circle"></i> Requires action</p>
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
@@ -144,7 +163,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- System Health / Quick Alerts -->
                     <div class="col-lg-6">
                         <div class="bg-white rounded-4 shadow-sm p-4 h-100">
@@ -176,27 +195,38 @@
 
                 <div class="bg-white rounded-4 shadow-sm p-4">
                     <h5 class="mb-4 fw-bold">Recent System Activity</h5>
-                    <div class="table-responsive">
-                        <table class="table align-middle">
-                            <tbody>
-                                <tr>
-                                    <td><div class="activity-icon p-2 bg-secondary-subtle rounded text-secondary text-center" style="width: 40px;"><i class="bi bi-person-plus"></i></div></td>
-                                    <td><h6 class="mb-0">New seller registered: @bookmaster</h6></td>
-                                    <td class="text-muted small">2 mins ago</td>
-                                </tr>
-                                <tr>
-                                    <td><div class="activity-icon p-2 bg-secondary-subtle rounded text-secondary text-center" style="width: 40px;"><i class="bi bi-check-circle"></i></div></td>
-                                    <td><h6 class="mb-0">Payment processed for order #98542</h6></td>
-                                    <td class="text-muted small">15 mins ago</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="activity-feed">
+                        <!-- Activity 1 -->
+                        <div class="d-flex align-items-start align-items-md-center justify-content-between mb-4 pb-4 border-bottom border-light-subtle">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="activity-icon p-2 bg-secondary-subtle rounded text-secondary text-center"
+                                    style="width: 40px;"><i class="bi bi-person-plus"></i></div>
+                                <div>
+                                    <h6 class="mb-1 mb-md-0">New seller registered: @bookmaster</h6>
+                                    <span class="text-muted small d-md-none">2 mins ago</span>
+                                </div>
+                            </div>
+                            <span class="text-muted small d-none d-md-block">2 mins ago</span>
+                        </div>
+                        <!-- Activity 2 -->
+                        <div class="d-flex align-items-start align-items-md-center justify-content-between mb-0">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="activity-icon p-2 bg-secondary-subtle rounded text-secondary text-center"
+                                    style="width: 40px;"><i class="bi bi-check-circle"></i></div>
+                                <div>
+                                    <h6 class="mb-1 mb-md-0">Payment processed for order #98542</h6>
+                                    <span class="text-muted small d-md-none">15 mins ago</span>
+                                </div>
+                            </div>
+                            <span class="text-muted small d-none d-md-block">15 mins ago</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- 📚 Section: Manage Books -->
-            <div id="books" class="dashboard-section" data-title="Manage Books" data-subtitle="Control the digital shelves and inventory.">
+            <div id="books" class="dashboard-section" data-title="Manage Books"
+                data-subtitle="Control the digital shelves and inventory.">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <!-- Title moved to topbar -->
                     <button class="btn btn-primary rounded-pill px-4">+ Add New Book</button>
@@ -205,16 +235,64 @@
                     <div class="table-responsive">
                         <table class="table table-hover align-middle">
                             <thead class="table-light">
-                                <tr><th>Book</th><th>Author</th><th>Price</th><th>Stock</th><th>Action</th></tr>
+                                <tr>
+                                    <th>Book</th>
+                                    <th>Author</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                    <th>Action</th>
+                                </tr>
                             </thead>
                             <tbody>
-                                <tr><td>Shadow of the Wind</td><td>Carlos Zafón</td><td>$15.00</td><td>42</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
-                                <tr><td>The Alchemist</td><td>Paulo Coelho</td><td>$12.50</td><td>15</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
-                                <tr><td>Normal People</td><td>Sally Rooney</td><td>$10.20</td><td>28</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
-                                <tr><td>The Seven Husbands</td><td>Taylor Jenkins</td><td>$14.00</td><td>12</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
-                                <tr><td>A Little Life</td><td>Hanya Yanagihara</td><td>$22.00</td><td>5</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
-                                <tr><td>Educated</td><td>Tara Westover</td><td>$11.50</td><td>31</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
-                                <tr><td>Circe</td><td>Madeline Miller</td><td>$13.20</td><td>19</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
+                                <tr>
+                                    <td>Shadow of the Wind</td>
+                                    <td>Carlos Zafón</td>
+                                    <td>$15.00</td>
+                                    <td>42</td>
+                                    <td><button class="btn btn-sm btn-outline-secondary">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>The Alchemist</td>
+                                    <td>Paulo Coelho</td>
+                                    <td>$12.50</td>
+                                    <td>15</td>
+                                    <td><button class="btn btn-sm btn-outline-secondary">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Normal People</td>
+                                    <td>Sally Rooney</td>
+                                    <td>$10.20</td>
+                                    <td>28</td>
+                                    <td><button class="btn btn-sm btn-outline-secondary">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>The Seven Husbands</td>
+                                    <td>Taylor Jenkins</td>
+                                    <td>$14.00</td>
+                                    <td>12</td>
+                                    <td><button class="btn btn-sm btn-outline-secondary">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>A Little Life</td>
+                                    <td>Hanya Yanagihara</td>
+                                    <td>$22.00</td>
+                                    <td>5</td>
+                                    <td><button class="btn btn-sm btn-outline-secondary">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Educated</td>
+                                    <td>Tara Westover</td>
+                                    <td>$11.50</td>
+                                    <td>31</td>
+                                    <td><button class="btn btn-sm btn-outline-secondary">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Circe</td>
+                                    <td>Madeline Miller</td>
+                                    <td>$13.20</td>
+                                    <td>19</td>
+                                    <td><button class="btn btn-sm btn-outline-secondary">Edit</button></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -222,20 +300,57 @@
             </div>
 
             <!-- 👥 Section: User Base -->
-            <div id="users" class="dashboard-section" data-title="User Management" data-subtitle="Oversee the LitLoom community members.">
+            <div id="users" class="dashboard-section" data-title="User Management"
+                data-subtitle="Oversee the LitLoom community members.">
                 <!-- Title moved to topbar -->
                 <div class="bg-white rounded-4 shadow-sm p-4">
                     <div class="table-responsive">
                         <table class="table align-middle">
                             <thead class="table-light">
-                                <tr><th>User</th><th>Email</th><th>Role</th><th>Joined</th><th>Action</th></tr>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Joined</th>
+                                    <th>Action</th>
+                                </tr>
                             </thead>
                             <tbody>
-                                <tr><td>John Doe</td><td>john@example.com</td><td><span class="badge bg-primary-subtle text-primary">Member</span></td><td>Jan 12, 2026</td><td><button class="btn btn-sm btn-outline-danger">Suspend</button></td></tr>
-                                <tr><td>Elena Rossi</td><td>elena@litloom.com</td><td><span class="badge bg-danger-subtle text-danger">Admin</span></td><td>Dec 05, 2025</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
-                                <tr><td>Jane Bibliophile</td><td>jane@user.com</td><td><span class="badge bg-success-subtle text-success">Seller</span></td><td>Feb 14, 2026</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
-                                <tr><td>Marcus Aurelius</td><td>stoic@example.com</td><td><span class="badge bg-primary-subtle text-primary">Member</span></td><td>Mar 01, 2026</td><td><button class="btn btn-sm btn-outline-danger">Suspend</button></td></tr>
-                                <tr><td>Sofia Lee</td><td>sofia@books.com</td><td><span class="badge bg-success-subtle text-success">Seller</span></td><td>Jan 28, 2026</td><td><button class="btn btn-sm btn-outline-secondary">Edit</button></td></tr>
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>john@example.com</td>
+                                    <td><span class="badge bg-primary-subtle text-primary">Member</span></td>
+                                    <td>Jan 12, 2026</td>
+                                    <td><button class="btn btn-sm btn-outline-danger">Suspend</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Elena Rossi</td>
+                                    <td>elena@litloom.com</td>
+                                    <td><span class="badge bg-danger-subtle text-danger">Admin</span></td>
+                                    <td>Dec 05, 2025</td>
+                                    <td><button class="btn btn-sm btn-outline-secondary">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Jane Bibliophile</td>
+                                    <td>jane@user.com</td>
+                                    <td><span class="badge bg-success-subtle text-success">Seller</span></td>
+                                    <td>Feb 14, 2026</td>
+                                    <td><button class="btn btn-sm btn-outline-secondary">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Marcus Aurelius</td>
+                                    <td>stoic@example.com</td>
+                                    <td><span class="badge bg-primary-subtle text-primary">Member</span></td>
+                                    <td>Mar 01, 2026</td>
+                                    <td><button class="btn btn-sm btn-outline-danger">Suspend</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Sofia Lee</td>
+                                    <td>sofia@books.com</td>
+                                    <td><span class="badge bg-success-subtle text-success">Seller</span></td>
+                                    <td>Jan 28, 2026</td>
+                                    <td><button class="btn btn-sm btn-outline-secondary">Edit</button></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -243,21 +358,57 @@
             </div>
 
             <!-- 📦 Section: Global Orders -->
-            <div id="orders" class="dashboard-section" data-title="Global Orders" data-subtitle="Monitor all literary transactions.">
+            <div id="orders" class="dashboard-section" data-title="Global Orders"
+                data-subtitle="Monitor all literary transactions.">
                 <!-- Title moved to topbar -->
                 <div class="bg-white rounded-4 shadow-sm p-4">
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead class="table-light">
-                                <tr><th>Order ID</th><th>Customer</th><th>Amount</th><th>Status</th></tr>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
                             </thead>
                             <tbody>
-                                <tr><td>#98542</td><td>Marcus Aurelius</td><td>$145.20</td><td><span class="badge bg-success-subtle text-success">Paid</span></td></tr>
-                                <tr><td>#98541</td><td>Sophia Lee</td><td>$45.00</td><td><span class="badge bg-warning-subtle text-warning">Shipped</span></td></tr>
-                                <tr><td>#98540</td><td>David Chen</td><td>$12.50</td><td><span class="badge bg-info-subtle text-info">Returned</span></td></tr>
-                                <tr><td>#98539</td><td>Sarah Jenkins</td><td>$89.90</td><td><span class="badge bg-success-subtle text-success">Delivered</span></td></tr>
-                                <tr><td>#98538</td><td>Robert Brown</td><td>$32.10</td><td><span class="badge bg-danger-subtle text-danger">Cancelled</span></td></tr>
-                                <tr><td>#98537</td><td>Lucy Heart</td><td>$54.00</td><td><span class="badge bg-success-subtle text-success">Paid</span></td></tr>
+                                <tr>
+                                    <td>#98542</td>
+                                    <td>Marcus Aurelius</td>
+                                    <td>$145.20</td>
+                                    <td><span class="badge bg-success-subtle text-success">Paid</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#98541</td>
+                                    <td>Sophia Lee</td>
+                                    <td>$45.00</td>
+                                    <td><span class="badge bg-warning-subtle text-warning">Shipped</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#98540</td>
+                                    <td>David Chen</td>
+                                    <td>$12.50</td>
+                                    <td><span class="badge bg-info-subtle text-info">Returned</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#98539</td>
+                                    <td>Sarah Jenkins</td>
+                                    <td>$89.90</td>
+                                    <td><span class="badge bg-success-subtle text-success">Delivered</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#98538</td>
+                                    <td>Robert Brown</td>
+                                    <td>$32.10</td>
+                                    <td><span class="badge bg-danger-subtle text-danger">Cancelled</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#98537</td>
+                                    <td>Lucy Heart</td>
+                                    <td>$54.00</td>
+                                    <td><span class="badge bg-success-subtle text-success">Paid</span></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -265,7 +416,8 @@
             </div>
 
             <!-- 💰 Section: Seller Payouts -->
-            <div id="payouts" class="dashboard-section" data-title="Seller Payouts" data-subtitle="Manage disbursements to the literary community.">
+            <div id="payouts" class="dashboard-section" data-title="Seller Payouts"
+                data-subtitle="Manage disbursements to the literary community.">
                 <div class="row g-4 mb-4">
                     <div class="col-md-4">
                         <div class="bg-primary text-white rounded-4 p-4 shadow-sm">
@@ -290,7 +442,13 @@
                     <div class="table-responsive">
                         <table class="table align-middle">
                             <thead class="table-light">
-                                <tr><th>Seller</th><th>Book Sold</th><th>Commission</th><th>Net Payout</th><th>Status</th></tr>
+                                <tr>
+                                    <th>Seller</th>
+                                    <th>Book Sold</th>
+                                    <th>Commission</th>
+                                    <th>Net Payout</th>
+                                    <th>Status</th>
+                                </tr>
                             </thead>
                             <tbody>
                                 <tr>
@@ -321,12 +479,13 @@
             </div>
 
             <!-- 📊 Section: Reports -->
-            <div id="reports" class="dashboard-section" data-title="Analytics & Reports" data-subtitle="Data-driven insights for LitLoom growth.">
+            <div id="reports" class="dashboard-section" data-title="Analytics & Reports"
+                data-subtitle="Data-driven insights for LitLoom growth.">
                 <!-- Title moved to topbar -->
                 <div class="row g-4">
                     <div class="col-md-4">
                         <div class="bg-white rounded-4 shadow-sm p-4 border-top border-4 border-primary">
-                            <h5>Revenue Report</h5>
+                            <h5>Financial Summary</h5>
                             <p class="text-muted small">Monthly earnings overview and transaction breakdowns.</p>
                             <button class="btn btn-outline-primary rounded-pill btn-sm">Generate Report</button>
                         </div>
@@ -349,13 +508,15 @@
             </div>
 
             <!-- 💬 Section: Messages & Support -->
-            <div id="messages" class="dashboard-section" data-title="Support Inbox" data-subtitle="Respond to community inquiries and technical tickets.">
+            <div id="messages" class="dashboard-section" data-title="Support Inbox"
+                data-subtitle="Respond to community inquiries and technical tickets.">
                 <div class="bg-white rounded-4 shadow-sm overflow-hidden">
                     <div class="row g-0" style="min-height: 500px;">
                         <!-- Message List Sidebar -->
                         <div class="col-md-4 border-end">
                             <div class="p-3 bg-light-subtle border-bottom">
-                                <input type="text" class="form-control form-control-sm rounded-pill" placeholder="Search conversations...">
+                                <input type="text" class="form-control form-control-sm rounded-pill"
+                                    placeholder="Search conversations...">
                             </div>
                             <div class="list-group list-group-flush overflow-y-auto" style="max-height: 450px;">
                                 <a href="#" class="list-group-item list-group-item-action active p-3">
@@ -370,14 +531,16 @@
                                         <h6 class="mb-1 fw-bold">Elena Rossi</h6>
                                         <small>2h</small>
                                     </div>
-                                    <p class="mb-1 small text-muted text-truncate">I'm having trouble with the seller...</p>
+                                    <p class="mb-1 small text-muted text-truncate">I'm having trouble with the seller...
+                                    </p>
                                 </a>
                                 <a href="#" class="list-group-item list-group-item-action p-3">
                                     <div class="d-flex w-100 justify-content-between">
                                         <h6 class="mb-1 fw-bold">John Doe</h6>
                                         <small>Yesterday</small>
                                     </div>
-                                    <p class="mb-1 small text-muted text-truncate">Need to update my bank account details...</p>
+                                    <p class="mb-1 small text-muted text-truncate">Need to update my bank account
+                                        details...</p>
                                 </a>
                             </div>
                         </div>
@@ -385,33 +548,43 @@
                         <div class="col-md-8 d-flex flex-column">
                             <div class="p-3 border-bottom d-flex align-items-center justify-content-between">
                                 <div class="d-flex align-items-center">
-                                    <div class="avatar-sm bg-primary rounded-circle text-white me-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">MA</div>
+                                    <div class="avatar-sm bg-primary rounded-circle text-white me-3 d-flex align-items-center justify-content-center"
+                                        style="width: 40px; height: 40px;">MA</div>
                                     <div>
                                         <h6 class="mb-0 fw-bold">Marcus Aurelius</h6>
-                                        <small class="text-success"><i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i> Online</small>
+                                        <small class="text-success"><i class="bi bi-circle-fill me-1"
+                                                style="font-size: 0.5rem;"></i> Online</small>
                                     </div>
                                 </div>
-                                <button class="btn btn-sm btn-outline-secondary rounded-circle"><i class="bi bi-three-dots-vertical"></i></button>
+                                <button class="btn btn-sm btn-outline-secondary rounded-circle"><i
+                                        class="bi bi-three-dots-vertical"></i></button>
                             </div>
                             <div class="flex-grow-1 p-4 bg-light-subtle overflow-y-auto" style="height: 350px;">
                                 <div class="message-received mb-4">
-                                    <div class="p-3 bg-white rounded-4 shadow-sm d-inline-block" style="max-width: 80%;">
-                                        <p class="mb-0 small">Hello, I haven't received my order #98542 yet. Could you help me with a tracking update?</p>
+                                    <div class="p-3 bg-white rounded-4 shadow-sm d-inline-block"
+                                        style="max-width: 80%;">
+                                        <p class="mb-0 small">Hello, I haven't received my order #98542 yet. Could you
+                                            help me with a tracking update?</p>
                                     </div>
                                     <div class="smallest text-muted mt-1 ms-2">10:42 AM</div>
                                 </div>
                                 <div class="message-sent mb-4 text-end">
-                                    <div class="p-3 bg-primary text-white rounded-4 shadow-sm d-inline-block" style="max-width: 80%;">
-                                        <p class="mb-0 small">Hi Marcus! I'll check that for you right away. It looks like it was dispatched this morning.</p>
+                                    <div class="p-3 bg-primary text-white rounded-4 shadow-sm d-inline-block"
+                                        style="max-width: 80%;">
+                                        <p class="mb-0 small">Hi Marcus! I'll check that for you right away. It looks
+                                            like it was dispatched this morning.</p>
                                     </div>
                                     <div class="smallest text-muted mt-1 me-2">10:45 AM</div>
                                 </div>
                             </div>
                             <div class="p-3 border-top">
                                 <div class="input-group">
-                                    <button class="btn btn-outline-secondary rounded-pill-start px-3" title="Attach file"><i class="bi bi-paperclip"></i></button>
-                                    <input type="text" class="form-control border-start-0 border-end-0 px-4" placeholder="Type your response...">
-                                    <button class="btn btn-primary rounded-pill-end px-4" title="Send message"><i class="bi bi-send-fill"></i></button>
+                                    <button class="btn btn-outline-secondary rounded-pill-start px-3"
+                                        title="Attach file"><i class="bi bi-paperclip"></i></button>
+                                    <input type="text" class="form-control border-start-0 border-end-0 px-4"
+                                        placeholder="Type your response...">
+                                    <button class="btn btn-primary rounded-pill-end px-4" title="Send message"><i
+                                            class="bi bi-send-fill"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -420,7 +593,8 @@
             </div>
 
             <!-- ⚙️ Section: Settings -->
-            <div id="settings" class="dashboard-section" data-title="Admin Settings" data-subtitle="Configure the core system and preferences.">
+            <div id="settings" class="dashboard-section" data-title="Admin Settings"
+                data-subtitle="Configure the core system and preferences.">
                 <!-- Title moved to topbar -->
                 <div class="bg-white rounded-4 shadow-sm p-4 p-lg-5">
                     <form>
@@ -447,9 +621,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
-
-
-
-
-
